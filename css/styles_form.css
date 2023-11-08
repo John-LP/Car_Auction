@@ -1,0 +1,59 @@
+@import "https://fonts.googleapis.com/css?family=Poppins";
+
+h1 {
+  margin: 0;
+}
+#contact {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+#contactForm {
+  border: 6px solid 3324be;
+  padding: 2em;
+  width: 400px;
+  text-align: center;
+  background: #1f2029;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  border-radius: 16px;
+}
+
+input,
+textarea {
+  outline: 0;
+  background:  #ffffff;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 15px;
+}
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+.formBtn {
+  outline: 0;
+  background:#ffeba7;
+  width: 140px;
+  height: 30px;
+  border: 0;
+  color: #1f2029;
+  font-size: 1.2em;
+  border-radius: 15px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
