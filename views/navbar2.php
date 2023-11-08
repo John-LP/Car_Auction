@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="./css/styles_navbar.css" rel="stylesheet">
+        <link href="./../css/styles_navbar.css" rel="stylesheet">
         <title>Webleb</title>
     </head>
     <body>
@@ -20,7 +20,6 @@
             </div>
             <ul class="nav-links">
                 <li><a href="http://localhost/exoPHP/car_auction/">Accueil</a></li>
-                <li><a href="http://localhost/exoPHP/car_auction/views/form_annonce">Créer une annonce</a></li>
                 <li><a href="http://localhost/exoPHP/car_auction/views/encheres_acheteur">Mes enchères</a></li>
                 <li><a href="http://localhost/exoPHP/car_auction/views/encheres_vendeur">Mes annonces</a></li>
                 <li><a class="login-button"
