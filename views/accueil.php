@@ -1,0 +1,1 @@
+<!-- Affiche toutes les enchères en cours provenant de tous les vendeurs -->
