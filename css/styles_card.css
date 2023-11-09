@@ -7,6 +7,9 @@ html {
 *:after {
   box-sizing: inherit;
 }
+body{
+  margin: 0;
+}
 section.card {
   background: #1f2029;
   border-radius: 24px 24px 24px 48px;
