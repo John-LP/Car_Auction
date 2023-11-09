@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="./../css/styles_form.css" rel="stylesheet">
+  <link href="./../css/styles_navbar.css" rel="stylesheet">
 </head>
 <body>
   <?php
-  require __DIR__ . "/navbar2.php";
+  require __DIR__ . "/navbar.php";
   ?>
   <div id="contactForm">
     <h1 style="margin-bottom: 10px;">Votre annonce</h1>
