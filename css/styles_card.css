@@ -11,6 +11,7 @@ body{
   margin: 0;
 }
 section.card {
+  margin-top: 3em;
   background: #1f2029;
   border-radius: 24px 24px 24px 48px;
   padding: 48px 48px 48px 308px;
@@ -34,7 +35,7 @@ section.card .text-content h3 {
   color: #fff;
 }
 section.card .text-content p {
-  margin: 25px 0 24px;
+  margin: 15px 0 15px 0;
   color: #fff;
 }
 section.card .text-content a {
