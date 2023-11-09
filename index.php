@@ -9,6 +9,7 @@
 <body>
   <?php
     require __DIR__ . "./views/navbar.php";
+    require __DIR__ . "./views/accueil.php";
   ?>
 </body>
 </html>
