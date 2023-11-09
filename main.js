@@ -1,25 +1,21 @@
+// Début JS navbar
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const links = document.querySelectorAll(".nav-links li");
 
 hamburger.addEventListener("click", () => {
-  //Animate Links
+
   navLinks.classList.toggle("open");
   links.forEach((link) => {
     link.classList.toggle("fade");
   });
-
-  //Hamburger Animation
   hamburger.classList.toggle("toggle");
 });
+// Fin JS navbar
 
-// Obtenez l'année actuelle
+// Début JS année input form_annonce
 const anneeActuelle = new Date().getFullYear();
-
-// Définissez la valeur maximale pour le champ input
 document.getElementById("yearInput").setAttribute("max", anneeActuelle);
-
-// Vous pouvez également ajouter une fonction de validation personnalisée pour empêcher l'envoi du formulaire si l'année est supérieure à l'année actuelle.
 document.getElementById("yearInput").addEventListener("input", function () {
   const yearInput = parseInt(this.value, 10);
   if (yearInput > anneeActuelle) {
@@ -30,3 +26,18 @@ document.getElementById("yearInput").addEventListener("input", function () {
     this.setCustomValidity("");
   }
 });
+// Fin JS année input form_annonce
+
+// Début JS section navbar
+document.addEventListener("DOMContentLoaded", function() {
+  let navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      navItems.forEach(function(navItem) {
+        navItem.classList.remove('is-clicked');
+      });
+      this.classList.add('is-clicked');
+    });
+  });
+});
+// Fin JS section navbar

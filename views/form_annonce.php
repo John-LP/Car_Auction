@@ -26,6 +26,5 @@
       <button class="formBtn" type="submit">Envoyer</button>
     </form>
   </div>
-  <script src="./../main.js"></script>
 </body>
 </html>

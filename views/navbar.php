@@ -1,32 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="./css/styles_navbar.css" rel="stylesheet">
-        <title>Webleb</title>
-    </head>
-    <body>
-        <nav>
-            <div class="logo" style="display: flex;align-items: center;">
-                <span
-                    style="color:#ffeba7; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">Car Auction</span>
-            </div>
-            <div class="hamburger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="http://localhost/exoPHP/car_auction/">Accueil</a></li>
-                <li><a href="http://localhost/exoPHP/car_auction/views/form_annonce">Créer une annonce</a></li>
-                <li><a href="http://localhost/exoPHP/car_auction/views/encheres_acheteur">Mes enchères</a></li>
-                <li><a href="http://localhost/exoPHP/car_auction/views/encheres_vendeur">Mes annonces</a></li>
-                <li><a class="login-button"
-                        href="http://localhost/exoPHP/car_auction/views/login">Se connecter</a></li>
-            </ul>
-        </nav>
-        <script src="./main.js"></script>
-    </body>
-</html>
+<nav>
+<div class="logo" style="display: flex;align-items: center;">
+    <span
+            style="color:#ffeba7; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">Car Auction</span>
+    </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-links nav">
+
+        <li><a id="accueil-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/">Accueil</a></li>
+
+        <li><a id="annonce-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/form_annonce">Créer une annonce</a></li>
+
+        <li><a id="enchere-acheteur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_acheteur">Mes enchères</a></li>
+
+        <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_vendeur">Mes annonces</a></li>
+
+        <li><a class="login-button"
+                href="http://localhost/exoPHP/car_auction/views/login">Se connecter</a></li>
+    </ul>
+</nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+        navItems.forEach(function(navItem) {
+            navItem.classList.remove('is-clicked');
+        });
+        this.classList.add('is-clicked');
+        });
+    });
+    });
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const links = document.querySelectorAll(".nav-links li");
+
+    hamburger.addEventListener("click", () => {
+
+    navLinks.classList.toggle("open");
+    links.forEach((link) => {
+        link.classList.toggle("fade");
+    });
+    hamburger.classList.toggle("toggle");
+    });
+</script>

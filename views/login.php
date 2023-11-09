@@ -24,9 +24,11 @@
                             <label for="reg-log"></label>
                             <div class="card-3d-wrap mx-auto">
                                 <div class="card-3d-wrapper">
+                                    
                                     <div class="card-front">
                                         <div class="center-wrap">
                                             <div class="section text-center">
+                                            <form class="section" action="class_utilisateur.php" method="POST">
                                                 <h4 class="mb-4 pb-3">Connexion</h4>
                                                 <div class="form-group">
                                                     <input type="email"
@@ -50,12 +52,15 @@
                                                 <p class="mb-0 mt-4 text-center"><a
                                                         href="https://www.web-leb.com/code"
                                                         class="link">Mot de passe oublié?</a></p>
+                                                        </form>
                                             </div>
                                         </div>
                                     </div>
+                               
                                     <div class="card-back">
                                         <div class="center-wrap">
                                             <div class="section text-center">
+                                            <form class="section" action="class_utilisateur.php" method="POST">
                                                 <h4 class="mb-3 pb-3">S'inscrire</h4>
                                                 <div class="form-group">
                                                     <input type="text"
@@ -89,9 +94,10 @@
                                                     <i
                                                         class="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                <a
+                                                <a  type="submit"
                                                     href="https://www.web-leb.com/code"
                                                     class="btn mt-4">Créer le compte</a>
+                                            </form>
                                             </div>
                                         </div>
                                     </div>
