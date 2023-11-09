@@ -1,61 +1,29 @@
 <!-- Création d'un compte utilisateur -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./../css/styles.css" rel="stylesheet">
-  <title>Document</title>
-</head>
-<body>
 <?php
-class Utilisateur {
-    private $dbh;
-
-    public function __construct() {
-        $this->dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
-    }
-
-    public function createUtilisateur($nom, $prenom, $email, $password) {
-        $query = $this->dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, password)
-        VALUES (':nom', ':prenom', ':email', (MD5)':password')");
-        $query->bindValue(':nom', $nom);
-        $query->bindValue(':prenom', $prenom);
-        $query->bindValue(':email', $email);
-        $query->bindValue(':password', $password);
-
-        if ($query->execute()) {
-            return true;
-        } else {
-            return false; 
-        }
-    }
-}
-
-$utilisateur = new Utilisateur();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $mdp = $_POST['mdp'];
 
-    $utilisateurCreated = $utilisateur->createUtilisateur($nom, $prenom, $email, $password);
+    $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
 
-    echo '<div  class="d-flex align-items-center">';
-    echo '<div class="row justify-content-center" style="margin:20px;">';
-    echo '<p class="creation">Votre compte a bien été créé.</p>';
-    echo "<br><br>";
-    echo '<div class="col-lg-12 login-title">';
-    echo '<a class="concessionaire" href="http://localhost/exoPHP/ecomm2/">Accueil</a>';
-    echo '</div>';
-    echo '<div class="col-lg-12 login-title">';
-    echo '<a class="concessionaire" href="http://localhost/exoPHP/ecomm2/views/display_customers.php">Liste Utilisateurs</a>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+    $query = $dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, mdp) VALUES (?, ?, ?, ?)");
+    $res = $query->execute([$nom, $prenom, $email, $mdp]);
+
+    if ($res) {
+        $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE nom = ?");
+        $query->execute([$nom]);
+        $utilisateur = $query->fetch();
+
+        echo "<p>Nom: " . $utilisateur['nom'] . "</p>";
+        echo "<p>Prénom: " . $utilisateur['prenom'] . "</p>";
+        echo "<p>Mail: " . $utilisateur['email'] . "</p>";
+
+    } else {
+
+        echo "Erreur lors de l'insertion dans la base de données.
+        Veuillez remplir tous les champs.";
+    }
 }
-
 ?>
-</body>
-</html>
