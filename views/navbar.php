@@ -10,16 +10,16 @@
     </div>
     <ul class="nav-links nav">
 
-        <li><a id="accueil-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/">Accueil</a></li>
+        <li><a id="accueil-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoBocal/car_auction/">Accueil</a></li>
 
-        <li><a id="annonce-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/form_annonce">Créer une annonce</a></li>
+        <li><a id="annonce-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoBocal/car_auction/views/form_annonce">Créer une annonce</a></li>
 
-        <li><a id="enchere-acheteur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_acheteur">Mes enchères</a></li>
+        <li><a id="enchere-acheteur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoBocal/car_auction/views/encheres_acheteur">Mes enchères</a></li>
 
-        <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_vendeur">Mes annonces</a></li>
+        <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoBocal/car_auction/views/encheres_vendeur">Mes annonces</a></li>
 
         <li><a class="login-button"
-                href="http://localhost/exoPHP/car_auction/views/login">Se connecter</a></li>
+                href="http://localhost/exoBocal/car_auction/views/login">Se connecter</a></li>
     </ul>
 </nav>
 <script>
