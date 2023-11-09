@@ -7,21 +7,13 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
+body{
   margin: 0;
-  padding: 96px;
-  font-size: 21px;
-  background: #fff;
-  color: #000;
-  font-family: "Poppins", sans-serif;
 }
 section.card {
-  background: #000046;
-  background: -webkit-linear-gradient(to right, #1cb5e0, #000046);
-  background: linear-gradient(to right, #1cb5e0, #000046);
+  background: #1f2029;
   border-radius: 24px 24px 24px 48px;
   padding: 48px 48px 48px 308px;
-  margin: 84px 0;
   min-width: 640px;
   display: flex;
   flex-direction: row;

@@ -18,10 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $dbh = new PDO("mysql:dbname=car_auction;localhost=8889", "root", "root");
 
-    $query = $dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, mdp) VALUES (?, ?, ?, ?)");
-    $res = $query->execute([$nom, $prenom, $email, $mdp]);
+    $query = $dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, mdp)
+    VALUES (:nom, :prenom, :email, :mdp)");
+    $query->bindValue(':nom', $nom);
+    $query->bindValue(':prenom', $prenom);
+    $query->bindValue(':email', $email);
+    $query->bindValue(':mdp', $mdp);
+    $query = $query->execute();
 
-    if ($res) {
+    if ($query) {
         $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE nom = ?");
         $query->execute([$nom]);
         $utilisateur = $query->fetch();

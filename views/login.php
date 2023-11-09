@@ -33,7 +33,8 @@
                                                     <input type="email"
                                                         name="email"
                                                         class="form-style"
-                                                        placeholder="Email">
+                                                        placeholder="Email"
+                                                        required>
                                                     <i
                                                         class="input-icon uil uil-at"></i>
                                                 </div>
@@ -41,15 +42,15 @@
                                                     <input type="password"
                                                         name="mdp"
                                                         class="form-style"
-                                                        placeholder="Mot de passe">
+                                                        placeholder="Mot de passe"
+                                                        required>
                                                     <i
                                                         class="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                <a
-                                                    href="https://www.web-leb.com/code"
-                                                    class="btn mt-4">Se connecter</a>
+                                                <button type="submit"
+                                                    class="btn mt-4">Se connecter</button>
                                                 <p class="mb-0 mt-4 text-center"><a
-                                                        href="https://www.web-leb.com/code"
+                                                        href=""
                                                         class="link">Mot de passe oublié?</a></p>
                                                         </form>
                                             </div>
@@ -64,7 +65,8 @@
                                                     <input type="text"
                                                         name="nom"
                                                         class="form-style"
-                                                        placeholder="Nom">
+                                                        placeholder="Nom"
+                                                        required>
                                                     <i
                                                         class="input-icon uil uil-user"></i>
                                                 </div>
@@ -72,7 +74,8 @@
                                                     <input type="tel"
                                                         name="prenom"
                                                         class="form-style"
-                                                        placeholder="Prénom">
+                                                        placeholder="Prénom"
+                                                        required>
                                                     <i
                                                     class="input-icon uil uil-user"></i>
                                                 </div>
@@ -80,7 +83,8 @@
                                                     <input type="email"
                                                         name="email"
                                                         class="form-style"
-                                                        placeholder="Email">
+                                                        placeholder="Email"
+                                                        required>
                                                     <i
                                                         class="input-icon uil uil-at"></i>
                                                 </div>
@@ -88,7 +92,8 @@
                                                     <input type="password"
                                                         name="mdp"
                                                         class="form-style"
-                                                        placeholder="Mot de passe">
+                                                        placeholder="Mot de passe"
+                                                        required>
                                                     <i
                                                         class="input-icon uil uil-lock-alt"></i>
                                                 </div>
