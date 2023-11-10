@@ -30,7 +30,7 @@
         echo '<a href="http://localhost/exoPHP/car_auction/">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
-        echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+        echo "<img src='$image_path' alt />";
         echo '</div>';
         echo '</section>';
         echo '</article>';

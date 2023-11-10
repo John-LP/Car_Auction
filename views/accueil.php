@@ -18,7 +18,7 @@
             echo '<article>';
             echo '<section class="card">';
             echo '<div class="text-content">';
-            echo "<h3>Par " . $result['nom'] . ' ' . $result['prenom'] . "</h3>";
+            echo "<h3>Mise aux enchères par</n> " . $result['nom'] . ' ' . $result['prenom'] . "</h3>";
             echo '<br><br>';
             echo "<h3>" . $result['marque'] . " " . $result['modele'] . "</h3>";
             echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
@@ -30,7 +30,7 @@
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
             echo '<div class="visual">';
-            echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+            echo "<img src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';

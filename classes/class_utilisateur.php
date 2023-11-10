@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
 
-    $dbh = new PDO("mysql:dbname=car_auction;localhost=8889", "root", "root");
+    $dbh = new PDO("mysql:dbname=car_auction;localhost", "root", "");
 
     $query = $dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, mdp)
     VALUES (:nom, :prenom, :email, :mdp)");
