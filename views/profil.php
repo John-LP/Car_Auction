@@ -26,7 +26,7 @@
             echo '<br>';
             echo "<p><u>Email :</u> " . $result['email'] . "</p>";
             echo "<br>";
-            echo "<a class='info'>Modifier</a>";
+            echo "<a class='info' href='http://localhost:8888/php/car_auction/views/edit_profil.php'>Modifier</a>";
             echo '<br><br>';
             echo '</section>';
             echo '</article>';

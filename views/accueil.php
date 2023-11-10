@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +8,7 @@
 </head>
     <body>
         <?php
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost;port=8889", "root", "root");
+        $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
 
         $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                       INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur");
@@ -33,7 +30,7 @@
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
             echo '<div class="visual">';
-            echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+            echo '<img src="https://api.renault-retail-group.fr/media/cache/csu_thumb_mobile/cdn/photos_rrgvo_hd/7/3137791_izajq.webp" alt />';
             echo '</div>';
             echo '</section>';
             echo '</article>';

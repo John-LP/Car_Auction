@@ -13,8 +13,8 @@
     </head>
     <body>
     <?php
-    require_once __DIR__ . "/navbar.php";
-
+   
+ require_once __DIR__ . "/navbar.php";
     $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
 
     $query = $dbh->prepare("SELECT * FROM annonces");
