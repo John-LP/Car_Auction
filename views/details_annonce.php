@@ -38,7 +38,7 @@
         echo "<a class='info'>Enchérir</a>";
         echo "</div>";
         echo '<br><br>';
-        echo '<a href="http://localhost/exoBocal/car_auction/">Retour</a>';
+        echo '<a href="../">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
         echo "<img src='" . $result['image_path'] . "' alt />";
@@ -63,10 +63,10 @@
             echo "<a class='info'>Enchérir</a>";
             echo "</div>";
             echo '<br><br>';
-            echo '<a href="http://localhost/exoBocal/car_auction/">Retour</a>';
+            echo '<a href="../">Retour</a>';
             echo '</div>';
             echo '<div class="visual">';
-            echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+            echo "<img src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';
