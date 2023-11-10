@@ -1,4 +1,7 @@
 <!-- Page de connexion/création de compte -->
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -18,6 +21,18 @@
                 <div class="row full-height justify-content-center">
                     <div class="col-12 text-center align-self-center py-5">
                         <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                            <?php
+                                if(isset($_SESSION['error'])) {
+                                    echo "<h5>" . $_SESSION['error'] . "</h5>";
+                                    echo "<br>";
+                                    unset($_SESSION['error']);
+                                }
+                                if(isset($_SESSION['success'])) {
+                                    echo "<h5>" . $_SESSION['success'] . "</h5>";
+                                    echo "<br>";
+                                    unset($_SESSION['success']);
+                                }
+                            ?>
                             <h6 class="mb-0 pb-3"><span>Connexion </span><span>Inscription</span></h6>
                             <input class="checkbox" type="checkbox" id="reg-log"
                                 name="reg-log" />
