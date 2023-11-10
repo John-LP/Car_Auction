@@ -4,7 +4,7 @@ class Serveur {
     private $dbh;
 
     public function __construct() {
-        $this->dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
+        $dbh = new PDO("mysql:dbname=car_auction;host=localhost;port=8889", "root", "root");
     }
 }
 

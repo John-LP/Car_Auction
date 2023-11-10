@@ -42,6 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.location.href = "http://localhost:8888/php/car_auction/index.php";
             }, 1000); // Redirection après 1 secondes (1000 millisecondes)
           </script>';
+
+          
 }
 ?>
 </body>

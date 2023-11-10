@@ -9,12 +9,22 @@
         <div class="line3"></div>
     </div>
     <ul class="nav-links nav">
+<<<<<<< Updated upstream
         <li><a id="accueil-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/">Accueil</a></li>
         <li><a id="annonce-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/form_annonce.php">Créer une annonce</a></li>
         <li><a id="enchere-acheteur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_acheteur.php">Mes enchères</a></li>
         <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/encheres_vendeur.php">Mes annonces</a></li>
         <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost/exoPHP/car_auction/views/profil.php">Mon profil</a></li>
         <li><a class="login-button" href="http://localhost/exoPHP/car_auction/views/login.php">Se connecter</a></li>
+=======
+        <li><a id="accueil-link" class="nav-item" active-color="#ffeba7" href="http://localhost:8888/php/car_auction/">Accueil</a></li>
+        <li><a id="annonce-link" class="nav-item" active-color="#ffeba7" href="http://localhost:8888/php/car_auction/views/form_annonce.php">Créer une annonce</a></li>
+        <li><a id="enchere-acheteur-link" class="nav-item" active-color="#ffeba7" href="http://localhost:8888/php/car_auction/views/encheres_acheteur.php">Mes enchères</a></li>
+        <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost:8888/php/car_auction/views/encheres_vendeur.php">Mes annonces</a></li>
+        <li><a id="enchere-vendeur-link" class="nav-item" active-color="#ffeba7" href="http://localhost:8888/php/car_auction/views/profil.php">Mon profil</a></li>
+        <li><a class="login-button"
+                href="http://localhost/exoBocal/car_auction/views/login.php">Se connecter</a></li>
+>>>>>>> Stashed changes
     </ul>
 </nav>
 <script>

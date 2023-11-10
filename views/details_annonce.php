@@ -1,4 +1,7 @@
 <!-- Affiche une annonce en détails -->
+<?php
+    session_start();
+?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -10,8 +13,8 @@
     </head>
     <body>
     <?php
-    require_once __DIR__ . "/navbar.php";
-
+   
+ require_once __DIR__ . "/navbar.php";
     $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
 
     $query = $dbh->prepare("SELECT * FROM annonces");
@@ -27,7 +30,7 @@
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
-        echo '<a href="http://localhost/exoPHP/car_auction/">Retour</a>';
+        echo '<a href="http://localhost/php/car_auction/">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
         echo "<img src='$image_path' alt />";
