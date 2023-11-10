@@ -1,6 +1,6 @@
 <!-- Formulaire pour poster une nouvelle annonce -->
 <?php
-    session_start();
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,4 +32,4 @@
     </form>
   </div>
 </body>
-</html>
+</html>  
