@@ -47,11 +47,11 @@ class Annonces {
         return $this->description;
     }
 
-    public function createAnnonceFromForm($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description) {
+    public function createAnnonceFromForm($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description, $imagePath) {
         $dbh = new PDO("mysql:dbname=car_auction;host=127.0.0.1", "root", "");
 
-        $query = $dbh->prepare("INSERT INTO annonces (id_utilisateur, prix_depart, date_fin, modele, marque, puissance, annee, description)
-        VALUES (:id_utilisateur, :prix_depart, :date_fin, :modele, :marque, :puissance, :annee, :description)");
+        $query = $dbh->prepare("INSERT INTO annonces (id_utilisateur, prix_depart, date_fin, modele, marque, puissance, annee, description, image_path)
+        VALUES (:id_utilisateur, :prix_depart, :date_fin, :modele, :marque, :puissance, :annee, :description, :imagePath)");
         $query->bindValue(':id_utilisateur', $id_utilisateur);
         $query->bindValue(':prix_depart', $prix_depart);
         $query->bindValue(':date_fin', $date_fin);
@@ -60,16 +60,17 @@ class Annonces {
         $query->bindValue(':puissance', $puissance);
         $query->bindValue(':annee', $annee);
         $query->bindValue(':description', $description);
+        $query->bindValue(':imagePath', $imagePath);
         $query->execute();
 
-            if ($query) {
-                echo "<p>Votre annonce a bien été créée.</p>";
-                usleep(1000000);
-                header("Location: http://localhost/exoBocal/car_auction/index.php");
-                exit; 
-            } else {
-                echo "Erreur lors de la création de l'annonce.";
-            }
+        if ($query) {
+            echo "<p>Votre annonce a bien été créée.</p>";
+            usleep(1000000);
+            header("Location: http://localhost/exoBocal/car_auction/index.php");
+            exit;
+        } else {
+            echo "Erreur lors de la création de l'annonce.";
+        }
     }
 }
 
@@ -85,15 +86,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['description']
     );
 
-    $annonce->createAnnonceFromForm(
-        $_POST['id_utilisateur'],
-        $_POST['prix_depart'],
-        $_POST['date_fin'],
-        $_POST['modele'],
-        $_POST['marque'],
-        $_POST['puissance'],
-        $_POST['annee'],
-        $_POST['description']
-    );
+    $targetDirectory = "E:/wamp64/www/images/";
+    $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
+    $imagePath = "http://localhost/images/" . basename($_FILES["image"]["name"]);
+
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+        echo "Le fichier " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a été téléchargé.";
+        $annonce->createAnnonceFromForm(
+            $_POST['id_utilisateur'],
+            $_POST['prix_depart'],
+            $_POST['date_fin'],
+            $_POST['modele'],
+            $_POST['marque'],
+            $_POST['puissance'],
+            $_POST['annee'],
+            $_POST['description'],
+            $imagePath
+        );
+    } else {
+        echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
+    }
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            echo "Le fichier est une image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "Le fichier n'est pas une image.";
+            $uploadOk = 0;
+        }
+    }
+
+    if (file_exists($targetFile)) {
+        echo "Le fichier existe déjà.";
+        $uploadOk = 0;
+    }
+
+    if ($_FILES["image"]["size"] > 500000) {
+        echo "Votre fichier est trop volumineux.";
+        $uploadOk = 0;
+    }
+
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        echo "Seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés.";
+        $uploadOk = 0;
+    }
+
+    if ($uploadOk == 0) {
+        echo "Votre fichier n'a pas été téléchargé.";
+
+    } else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "Le fichier " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a été téléchargé.";
+
+        } else {
+            echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
+        }
+    }
 }
 ?>

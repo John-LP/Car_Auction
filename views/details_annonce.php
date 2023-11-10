@@ -13,8 +13,8 @@
     </head>
     <body>
     <?php
-    require_once __DIR__ . "/navbar.php";
-
+   
+ require_once __DIR__ . "/navbar.php";
     $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
 
     $query = $dbh->prepare("SELECT annonces.*, encheres.montant, encheres.id_utilisateur, utilisateurs.nom, utilisateurs.prenom FROM annonces LEFT JOIN encheres ON annonces.id_annonce=encheres.id_annonce LEFT JOIN utilisateurs ON encheres.id_utilisateur=utilisateurs.id_utilisateur;");
@@ -41,7 +41,7 @@
         echo '<a href="http://localhost/exoBocal/car_auction/">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
-        echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+        echo "<img src='$image_path' alt />";
         echo '</div>';
         echo '</section>';
         echo '</article>';
