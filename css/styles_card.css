@@ -54,7 +54,7 @@ section.card .text-content a:hover {
 }
 section.card .visual {
   width: 55%;
-  height: 68%;
+  height: 25em;
   position: absolute;
   top: -5em;
   right: 4em;
@@ -92,7 +92,7 @@ article {
     min-width: 100%;
   }
   section.card {
-    margin-top: 8em;
+    margin-top: 10em!important;
     min-width: 100%;
   }
   section.card .text-content {
@@ -118,14 +118,17 @@ article {
     font-size: 0.8em;
   }
   section.card .visual {
-    width: 150px;
-    height: 150px;
+    width: 15em;
+    height: 10em;
     right: 16px;
     left: auto;
-    border-radius: 50%;
+    border-radius: 30px;
   }
   section.card .visual img {
     width: 100%;
     height: auto;
+  }
+  .inputEnchere {
+    margin-bottom: 3em;
   }
 }

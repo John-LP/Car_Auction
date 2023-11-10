@@ -26,8 +26,8 @@
             echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
-            echo '<div class="visual">';
-            echo "<img src='" . $result['image_path'] . "' alt />";
+            echo '<div >';
+            echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';

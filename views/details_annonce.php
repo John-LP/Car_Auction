@@ -40,8 +40,8 @@
         echo '<br><br>';
         echo '<a href="../">Retour</a>';
         echo '</div>';
-        echo '<div class="visual">';
-        echo "<img src='" . $result['image_path'] . "' alt />";
+        echo '<div>';
+        echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
         echo '</div>';
         echo '</section>';
         echo '</article>';
@@ -65,8 +65,8 @@
             echo '<br><br>';
             echo '<a href="../">Retour</a>';
             echo '</div>';
-            echo '<div class="visual">';
-            echo "<img src='" . $result['image_path'] . "' alt />";
+            echo '<div>';
+            echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';
