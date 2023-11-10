@@ -1,4 +1,7 @@
 <!-- Formulaire pour poster une nouvelle annonce -->
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
