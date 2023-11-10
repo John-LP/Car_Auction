@@ -11,7 +11,7 @@
 </head>
     <body>
         <?php
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
+        $dbh = new PDO("mysql:dbname=car_auction;host=localhost;port=8889", "root", "root");
 
         $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                       INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur");

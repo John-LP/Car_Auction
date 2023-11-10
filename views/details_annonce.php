@@ -30,7 +30,7 @@
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
-        echo '<a href="http://localhost/exoPHP/car_auction/">Retour</a>';
+        echo '<a href="http://localhost/php/car_auction/">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
         echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
