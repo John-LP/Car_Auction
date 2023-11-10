@@ -58,3 +58,36 @@ textarea {
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+@media all and (max-width: 770px) {
+  #contactForm {
+    padding: 1em!important;
+    width: 22em!important;
+    height: 42em!important;
+    text-align: center!important;
+    background: #1f2029!important;
+    position: fixed!important;
+    top: 30em!important;
+    left: 50%!important;
+    transform: translate(-50%, -50%)!important;
+    -webkit-transform: translate(-50%, -50%)!important;
+    border-radius: 16px!important;
+  }
+}
+
+
+@media all and (max-width: 920px) {
+  #contactForm {
+    padding: 1em;
+    width: 40em;
+    height: 45em;
+    text-align: center;
+    background: #1f2029;
+    position: fixed;
+    top: 40em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 16px;
+  }
+}

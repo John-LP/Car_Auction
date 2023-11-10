@@ -12,6 +12,7 @@ body {
   padding: 0.1px !important;
 }
 section.card {
+  border: 2px solid #ffeba7;
   margin-top: 8em;
   background: #1f2029;
   border-radius: 24px 24px 24px 48px;
@@ -21,8 +22,6 @@ section.card {
   flex-direction: row;
   align-self: flex-start;
   position: relative;
-  box-shadow: 5px 0 0 0 rgba(204, 204, 204, 0.3),
-    -5px 0 0 0 rgba(204, 204, 204, 0.3), 0 5px 0 0 rgba(204, 204, 204, 0.3);
 }
 section.card .text-content {
   display: flex;
@@ -40,8 +39,8 @@ section.card .text-content p {
   color: #fff;
 }
 section.card .text-content a {
-  border: 3px solid #f2f2f2;
-  color: #ffffff;
+  border: 3px solid #ffeba7;
+  color: white;
   align-self: flex-start;
   text-decoration: none;
   padding: 16px 32px;
@@ -49,10 +48,12 @@ section.card .text-content a {
   transition: 400ms all;
 }
 section.card .text-content a:hover {
-  background: #051c5e;
-  color: white;
+  background: #ffeba7;
+  color: #1f2029;
+  border: 2px solid #1f2029;
 }
 section.card .visual {
+  border: 2px solid #ffeba7;
   width: 55%;
   height: 25em;
   position: absolute;
@@ -131,4 +132,10 @@ article {
   .inputEnchere {
     margin-bottom: 3em;
   }
+}
+
+@media all and (max-width: 300px) {
+.inputEnchere {
+  width: 16em;
+}
 }
