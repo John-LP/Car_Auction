@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +33,7 @@
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
             echo '<div class="visual">';
-            echo '<img src="https://api.renault-retail-group.fr/media/cache/csu_thumb_mobile/cdn/photos_rrgvo_hd/7/3137791_izajq.webp" alt />';
+            echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
             echo '</div>';
             echo '</section>';
             echo '</article>';

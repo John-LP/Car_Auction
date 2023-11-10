@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = $_POST['nom'];
@@ -32,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $utilisateur = $query->fetch();
 
         echo "<p>Votre compte a bien été créé. <br>
-                Vous allez être redirigé à l'accueil.<br>
+                Vous allez être redirigé vers l'accueil.<br>
                 Bonne visite.</p>";
 
     } else {
