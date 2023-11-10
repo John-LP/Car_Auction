@@ -9,6 +9,7 @@ html {
 }
 body{
   margin: 0;
+  padding: 0.1px!important;
 }
 section.card {
   margin-top: 3em;
@@ -115,3 +116,4 @@ article {
     height: auto;
   }
 }
+

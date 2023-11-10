@@ -28,7 +28,7 @@
   bottom: 0;
 }
 .nav-item:not(.is-active):hover{
-  color: #333;
+  color: #b39943;
 }
 
 .nav-item.is-clicked:before {
@@ -155,7 +155,7 @@ nav {
   }
   .nav-links {
     position: fixed;
-    background: #131418;
+    background: #1f2029;
     height: 100vh;
     width: 100%;
     flex-direction: column;
@@ -212,4 +212,207 @@ nav {
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media screen and (max-width: 920px) {
+  nav {
+    position: fixed;
+    z-index: 3;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+  .nav-links {
+    position: fixed;
+    background: #1f2029;
+    height: 100vh;
+    width: 100%!important;
+    flex-direction: column;
+    clip-path: circle(50px at 90% -20%);
+    -webkit-clip-path: circle(50px at 90% -10%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+  }
+  .nav-links.open {
+    clip-path: circle(1500px at 90% -10%);
+    -webkit-clip-path: circle(1500px at 90% -10%);
+    pointer-events: all;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-links li:nth-child(1) {
+    transition: all 0.5s ease 0.2s;
+  }
+  .nav-links li:nth-child(2) {
+    transition: all 0.5s ease 0.4s;
+  }
+  .nav-links li:nth-child(3) {
+    transition: all 0.5s ease 0.6s;
+  }
+  .nav-links li:nth-child(4) {
+    transition: all 0.5s ease 0.7s;
+  }
+  .nav-links li:nth-child(5) {
+    transition: all 0.5s ease 0.8s;
+  }
+  .nav-links li:nth-child(6) {
+    transition: all 0.5s ease 0.9s;
+    margin: 0;
+  }
+  .nav-links li:nth-child(7) {
+    transition: all 0.5s ease 1s;
+    margin: 0;
+  }
+  .nav-links li a.active {
+    text-decoration: underline;
+  }
+  li.fade {
+    opacity: 1;
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media screen and (max-width: 1280px) {
+  .nav-item {
+    color: #ffeba7;
+    padding: 26.5px;
+    text-decoration: none;
+    transition: .1s;
+    margin: 0 6px;
+    z-index: 1;
+    position: relative;
+  
+    &:before {
+      content:"";
+      position: absolute;
+      bottom: -6px;
+      left:0;
+      width: 100%;
+      height: 5px;
+      background-color: #ffeba7;
+      border-radius: 8px 8px 0 0;
+      opacity: 0;
+      transition: .3s;
+    }
+  }
+  .nav-item:not(.is-active):hover:before {
+    width: 100%;
+    opacity: 1;
+    bottom: 0;
+  }
+  .nav-item:not(.is-active):hover{
+    color: #333;
+  }
+  
+  .nav-item.is-clicked:before {
+    width: 100%;
+    opacity: 1;
+    bottom: 0;
+  }
+  
+  .nav-links .nav-item.is-clicked {
+    color: #333;
+    border-bottom: 2px solid #ffeba7;
+  }
+  
+  
+  * {
+    margin: 0;
+    padding: 0;
+    color: #ffeba7;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  body {
+    background-color: rgb(78, 77, 77);
+    overflow-x: hidden;
+  }
+  nav {
+    height: 4.5rem;
+    width: 100vw;
+    background-color: #1f2029;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    z-index: 10;
+  }
+  
+  .logo {
+    padding: 1vh 1vw;
+    text-align: center;
+  }
+  .logo img {
+    height: 5rem;
+    width: 5rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    width: 88vw;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    margin: 0 0.7vw;
+  }
+  .nav-links li a:hover {
+    color: rgb(186, 162, 81);
+  }
+  .nav-links li {
+    position: relative;
+  }
+  .nav-links li a:hover::before {
+    width: 80%;
+  }
+  
+  .login-button {
+    background-color: transparent;
+    border: 1.5px solid #f2f5f7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-left: 2vw;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .login-button:hover {
+    color: #ffeba7;
+    border: 1.5px solid #ffeba7;
+    transition: all ease-in-out 350ms;
+  }
+  .join-button {
+    color: #131418;
+    background-color: #ffeba7;
+    border: 1.5px solid #ffeba7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .join-button:hover {
+    color: #ffeba7;
+    background-color: transparent;
+    border: 1.5px solid #ffeba7;
+    transition: all ease-in-out 350ms;
+  }
 }
