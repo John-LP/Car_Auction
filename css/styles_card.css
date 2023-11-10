@@ -7,9 +7,9 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body{
+body {
   margin: 0;
-  padding: 0.1px!important;
+  padding: 0.1px !important;
 }
 section.card {
   margin-top: 8em;
@@ -54,7 +54,7 @@ section.card .text-content a:hover {
 }
 section.card .visual {
   width: 55%;
-  height: 68%;
+  height: 25em;
   position: absolute;
   top: -5em;
   right: 4em;
@@ -71,6 +71,18 @@ article {
   max-width: calc(920px + 248px);
   min-width: calc(640px + 248px);
 }
+.inputEnchere {
+  border: 3px solid #f2f2f2;
+  color: #ffffff;
+  align-self: flex-start;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: 400ms all;
+  background: #1f2029;
+  margin-right: 1vw;
+}
+
 @media all and (max-width: 1100px) {
   body {
     padding: 96px 48px 24px;
@@ -80,7 +92,7 @@ article {
     min-width: 100%;
   }
   section.card {
-    margin-top: 8em;
+    margin-top: 10em!important;
     min-width: 100%;
   }
   section.card .text-content {
@@ -106,14 +118,17 @@ article {
     font-size: 0.8em;
   }
   section.card .visual {
-    width: 150px;
-    height: 150px;
+    width: 15em;
+    height: 10em;
     right: 16px;
     left: auto;
-    border-radius: 50%;
+    border-radius: 30px;
   }
   section.card .visual img {
     width: 100%;
     height: auto;
+  }
+  .inputEnchere {
+    margin-bottom: 3em;
   }
 }

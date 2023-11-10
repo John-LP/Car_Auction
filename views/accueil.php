@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +8,7 @@
 </head>
     <body>
         <?php
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
+        require_once __DIR__ . "./../classes/class_serveur.php";
 
         $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                       INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur");
@@ -21,19 +18,16 @@
             echo '<article>';
             echo '<section class="card">';
             echo '<div class="text-content">';
-            echo "<h3>Par " . $result['nom'] . ' ' . $result['prenom'] . "</h3>";
+            echo "<h3>Mise aux enchères par</n> " . $result['nom'] . ' ' . $result['prenom'] . "</h3>";
             echo '<br><br>';
             echo "<h3>" . $result['marque'] . " " . $result['modele'] . "</h3>";
             echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
             echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . "€" . "</p>";
             echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
-            echo '<br>';
-            echo "<a class='info'>Enchérir</a>";
-            echo '<br><br>';
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
-            echo '<div class="visual">';
-            echo '<img src="https://4kwallpapers.com/images/walls/thumbs_3t/9840.jpg" alt />';
+            echo '<div >';
+            echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';
