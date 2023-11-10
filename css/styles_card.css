@@ -80,6 +80,7 @@ article {
     min-width: 100%;
   }
   section.card {
+    margin-top: 8em;
     min-width: 100%;
   }
   section.card .text-content {
@@ -91,7 +92,7 @@ article {
     padding: 48px 24px 0;
   }
   section.card {
-    margin: 64px 0;
+    margin-top: 8em;
     padding: 88px 36px 36px;
     flex-direction: column;
     border-radius: 24px;
@@ -116,4 +117,3 @@ article {
     height: auto;
   }
 }
-
