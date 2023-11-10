@@ -6,6 +6,9 @@ body {
   color: #ffeba7;
   background-color: #1f2029;
 }
+.accueil-login:visited {
+  text-decoration: none;
+}
 a:hover {
   text-decoration: none;
 }

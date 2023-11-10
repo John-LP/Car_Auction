@@ -12,10 +12,10 @@ body{
   padding: 0.1px!important;
 }
 section.card {
-  margin-top: 3em;
+  margin-top: 8em;
   background: #1f2029;
   border-radius: 24px 24px 24px 48px;
-  padding: 48px 48px 48px 308px;
+  padding: 48px 48px 48px 38px;
   min-width: 640px;
   display: flex;
   flex-direction: row;
@@ -53,11 +53,11 @@ section.card .text-content a:hover {
   color: white;
 }
 section.card .visual {
-  width: 240px;
-  height: 100%;
+  width: 55%;
+  height: 68%;
   position: absolute;
-  top: -24px;
-  left: 24px;
+  top: -5em;
+  right: 4em;
   overflow: hidden;
   border-radius: 24px;
 }
