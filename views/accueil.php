@@ -24,9 +24,6 @@
             echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
             echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . "€" . "</p>";
             echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
-            echo '<br>';
-            echo "<a class='info'>Enchérir</a>";
-            echo '<br><br>';
             echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
             echo '</div>';
             echo '<div class="visual">';
