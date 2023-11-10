@@ -13,11 +13,11 @@
 
         if($query->rowCount() == 0) {
             $_SESSION['error'] = 'Identifiant ou mot de passe incorrect';
-            header("Location: http://localhost/car_auction/views/login");
+            header("Location: http://localhost/exoBocal/car_auction/views/login");
             exit; 
         } else {
             $_SESSION['success'] = 'Bienvenue ! Vous êtes bien connecté !';
-            header("Location: http://localhost/car_auction/");
+            header("Location: http://localhost/exoBocal/car_auction/");
             exit; 
         }
     }
