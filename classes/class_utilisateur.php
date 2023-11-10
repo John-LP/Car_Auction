@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Bonne visite.</p>";
 
     } else {
-        echo "<p>Erreur lors de l'insertion dans la base de données. Veuillez remplir tous les champs.</p>";
+        echo "<p>Erreur lors de la création du compte.</p>";
     }
 
     echo '<script>

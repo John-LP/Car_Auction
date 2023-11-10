@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['email'])) {
+    header("Location: http://localhost/exoPHP/car_auction/views/login");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +20,9 @@
         require_once __DIR__ . "/navbar.php";
         require_once __DIR__ . "./../classes/class_serveur.php";
 
-        $query = $dbh->prepare("SELECT * FROM utilisateurs");
+        $email = $_SESSION['email'];
+        $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+        $query->bindValue(':email', $email);
         $query->execute();
 
         while ($result = $query->fetch()) {

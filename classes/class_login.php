@@ -1,6 +1,5 @@
 <?php
     session_start();
-    
     require_once __DIR__ . "/class_serveur.php";
         
     if(isset($_POST['email'])) {
@@ -14,12 +13,14 @@
 
         if($query->rowCount() == 0) {
             $_SESSION['error'] = 'Identifiant ou mot de passe incorrect';
-            header("Location: http://localhost/exoBocal/car_auction/views/login");
+            header("Location: http://localhost/exoPHP/car_auction/views/login");
             exit; 
         } else {
-            $_SESSION['success'] = 'Bienvenue ! Vous êtes bien connecté !';
+            $_SESSION['email'] = $email;
+            $_SESSION['success'] = 'Vous êtes bien connecté !';
             header("Location: http://localhost/exoPHP/car_auction");
             exit; 
         }
     }
+
 ?>
