@@ -15,7 +15,7 @@
     <?php
    
  require_once __DIR__ . "/navbar.php";
-    $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
+ require_once __DIR__ . "./../classes/class_serveur.php";
 
     $query = $dbh->prepare("SELECT * FROM annonces");
     $query->execute();
@@ -30,10 +30,10 @@
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
-        echo '<a href="http://localhost/php/car_auction/">Retour</a>';
+        echo '<a href="../">Retour</a>';
         echo '</div>';
         echo '<div class="visual">';
-        echo "<img src='$image_path' alt />";
+        echo "<img src='" . $result['image_path'] . "' alt />";
         echo '</div>';
         echo '</section>';
         echo '</article>';

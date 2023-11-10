@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . "/class_serveur.php";
 
 class Annonces {
     protected $id_utilisateur;
@@ -48,8 +47,7 @@ class Annonces {
     }
 
     public function createAnnonceFromForm($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description, $imagePath) {
-        $dbh = new PDO("mysql:dbname=car_auction;host=127.0.0.1", "root", "");
-
+        require_once __DIR__ . "/class_serveur.php";
         $query = $dbh->prepare("INSERT INTO annonces (id_utilisateur, prix_depart, date_fin, modele, marque, puissance, annee, description, image_path)
         VALUES (:id_utilisateur, :prix_depart, :date_fin, :modele, :marque, :puissance, :annee, :description, :imagePath)");
         $query->bindValue(':id_utilisateur', $id_utilisateur);
@@ -66,7 +64,7 @@ class Annonces {
         if ($query) {
             echo "<p>Votre annonce a bien été créée.</p>";
             usleep(1000000);
-            header("Location: http://localhost/exoBocal/car_auction/index.php");
+            header("Location: http://localhost/exoPHP/car_auction/index.php");
             exit;
         } else {
             echo "Erreur lors de la création de l'annonce.";

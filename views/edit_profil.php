@@ -8,27 +8,24 @@
 </head>
 
 <body>
-   
+    <?php 
+    require_once __DIR__ . "/navbar.php";
+    ?>
 
     <?php
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Logique de mise à jour ici...
-    // Assurez-vous de récupérer les données du formulaire posté ($_POST)
+
 } else {
-    // Récupérer l'ID de l'utilisateur depuis l'URL
     if (isset($_GET['id'])) {
         $id_utilisateur = $_GET['id'];
 
-        // Connectez-vous à la base de données
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost;port=8889", "root", "root");
+        require_once __DIR__ . "./../classes/class_serveur.php";
 
-        // Récupérer les détails de l'utilisateur avec cet ID
         $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");
         $query->bindValue(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
         $query->execute();
         $utilisateur = $query->fetch();
 
-        // Vérifiez si l'utilisateur existe avant d'afficher le formulaire
         if ($utilisateur) {
             ?>
             <form method="post" action="class_utilisateur.php">
@@ -49,11 +46,9 @@
             </form>
             <?php
             } else {
-                // Gérer le cas où l'ID n'est pas valide
                 echo "ID d'utilisateur non valide.";
             }
         } else {
-            // Gérer le cas où l'ID n'est pas spécifié dans l'URL
             echo '<article>';
             echo '<section class="card">';
             echo '<div class="text-content">';
@@ -65,10 +60,8 @@
             echo '<br>';
             echo "<p><u>Email :</u> " . $result['email'] . "</p>";
             echo "<br>";
-        
             echo "<a class='info' href='./profil.php" . $result['id_utilisateur'] . "'>Valider</a>";
             echo '<br><br>';
-            
             echo '</section>';
             echo '</article>';
         }

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
 
-    $dbh = new PDO("mysql:dbname=car_auction;localhost", "root", "");
+    require_once __DIR__ . "/class_serveur.php";
 
     $query = $dbh->prepare("INSERT INTO utilisateurs (nom, prenom, email, mdp)
     VALUES (:nom, :prenom, :email, :mdp)");
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo '<script>
             setTimeout(function() {
-                window.location.href = "http://localhost:8888/php/car_auction/index.php";
+                window.location.href = "../";
             }, 1000); // Redirection après 1 secondes (1000 millisecondes)
           </script>';
 

@@ -8,7 +8,7 @@
 </head>
     <body>
         <?php
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost", "root", "");
+        require_once __DIR__ . "./../classes/class_serveur.php";
 
         $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                       INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur");

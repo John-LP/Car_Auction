@@ -9,7 +9,8 @@
 </head>
     <body>
         <?php
-        $dbh = new PDO("mysql:dbname=car_auction;host=localhost;port=8889", "root", "root");
+        require_once __DIR__ . "/navbar.php";
+        require_once __DIR__ . "./../classes/class_serveur.php";
 
         $query = $dbh->prepare("SELECT * FROM utilisateurs");
         $query->execute();
@@ -26,7 +27,7 @@
             echo '<br>';
             echo "<p><u>Email :</u> " . $result['email'] . "</p>";
             echo "<br>";
-            echo "<a class='info' href='http://localhost:8888/php/car_auction/views/edit_profil.php'>Modifier</a>";
+            echo "<a class='info' href='./edit_profil.php'>Modifier</a>";
             echo '<br><br>';
             echo '</section>';
             echo '</article>';
