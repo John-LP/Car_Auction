@@ -1,4 +1,3 @@
-<!-- Affiche une annonce en détails -->
 <?php
     session_start();
 ?>
@@ -16,8 +15,21 @@
    
  require_once __DIR__ . "/navbar.php";
  require_once __DIR__ . "./../classes/class_serveur.php";
+ require_once __DIR__ . "./../classes/class_enchere.php";
 
-    $query = $dbh->prepare("SELECT annonces.*, encheres.montant, encheres.id_utilisateur, utilisateurs.nom, utilisateurs.prenom FROM annonces LEFT JOIN encheres ON annonces.id_annonce=encheres.id_annonce LEFT JOIN utilisateurs ON encheres.id_utilisateur=utilisateurs.id_utilisateur;");
+//Verifie que la variable 'Id_annonce' soit presente dans l'url et est envoyé avec la methode get quand l'utilisateur cliaue sur le lien
+ if(isset($_GET['id_annonce'])) {
+    $id_annonce = $_GET['id_annonce'];
+
+    // Une requete SQL qui selectionnes toutes les colones de la table annonce, ainsi que quelques colonnes de la table "encheres" et "utilisateurs". 
+    // Fait des jointures et la conditions where filtre les annonces pour obtenir l'identifiant specifique à celle-ci.
+    $query = $dbh->prepare("SELECT annonces.*, encheres.montant, encheres.id_utilisateur, utilisateurs.nom, utilisateurs.prenom FROM annonces 
+        LEFT JOIN encheres ON annonces.id_annonce=encheres.id_annonce 
+        LEFT JOIN utilisateurs ON encheres.id_utilisateur=utilisateurs.id_utilisateur         
+        WHERE annonces.id_annonce = :id_annonce");
+
+    // lie la valeur à la variable dans la requête SQL. Cela aide à prévenir les attaques par injection SQL en assurant que la valeur de l'identifiant est traitée comme un entier.
+    $query->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
     $query->execute();
 
     while ($result = $query->fetch()) {
@@ -33,15 +45,18 @@
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
         echo '<br>';
-        echo "<div>";
-        echo "<input type='number' class='info inputEnchere' placeholder='Entrer vôtre enchere' ></input>";
-        echo "<a class='info'>Enchérir</a>";
-        echo "</div>";
+        // En construction
+        echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
+        echo "<input type='number' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
+        echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
+        echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
+        echo "</form>";
+        // Fin de construction
         echo '<br><br>';
         echo '<a href="../">Retour</a>';
         echo '</div>';
-        echo '<div>';
-        echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
+        echo '<div class="visual">';
+        echo "<img src='" . $result['image_path'] . "' alt />";
         echo '</div>';
         echo '</section>';
         echo '</article>';
@@ -65,13 +80,14 @@
             echo '<br><br>';
             echo '<a href="../">Retour</a>';
             echo '</div>';
-            echo '<div>';
-            echo "<img class='visual' src='" . $result['image_path'] . "' alt />";
+            echo '<div class="visual">';
+            echo "<img src='" . $result['image_path'] . "' alt />";
             echo '</div>';
             echo '</section>';
             echo '</article>';
         }
     }
+}
     ?>
     </body>
 </html>
