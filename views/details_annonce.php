@@ -35,24 +35,26 @@
     $query->execute();
 
     while ($result = $query->fetch()) {
-        if($result['montant']>=1){
         echo '<article>';
         echo '<section class="card">';
         echo '<div class="text-content">';
         echo "<h3>" . $result['marque'] . " " . $result['modele'] . "</h3>";
         echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
         echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
-        echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . " ID " . $result['id_utilisateur'] . "</p>";
+        // Si il y une enchère sur l'annonce elle s'affichera dans 'enchère actuelle' sinon 'Aucune' s'affichera
+        if ($result['montant'] >= 1) {
+            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . " ID " . $result['id_utilisateur'] . "</p>";
+        } else {
+            echo "<p><u>Enchère actuelle :</u> Aucune</p>";
+        }
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
         echo '<br>';
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
-        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
-        echo "<p>ID de l'enchérisseur :" .  $_SESSION['id_utilisateur'] . "</p>";
+        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='montant'></input>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
-        echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
         echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
         echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
         echo "</form>";        
@@ -65,59 +67,9 @@
         echo '</div>';
         echo '</section>';
         echo '</article>';
-        }
-        else{
-            echo '<article>';
-            echo '<section class="card">';
-            echo '<div class="text-content">';
-            echo "<h3>" . $result['marque'] . " " . $result['modele'] . "</h3>";
-            echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
-            echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
-            echo "<p><u>Enchère actuelle :</u>" . " Aucune " . "</p>";
-            echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
-            echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
-            echo "<p>" . $result['description'] . "</p>";
-            echo '<br>';
-            // En construction
-            echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
-            echo "<p>Votre ID : " .  $_SESSION['id_utilisateur'] . "</p>";
-            echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
-            echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
-            echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
-            echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
-            echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
-            echo "</form>";        
-            // Fin de construction;
-            echo '<br><br>';
-            echo '<a href="../">Retour</a>';
-            echo '</div>';
-            echo '<div class="visual">';
-            echo "<img src='" . $result['image_path'] . "' alt />";
-            echo '</div>';
-            echo '</section>';
-            echo '</article>';
-        }
-    }
+    } 
 }
+
     ?>
-    <script>
-    function validateEnchere() {
-        let enchereInput = document.getElementById('enchere');
-        let prixDepart = <?php echo $result['prix_depart']; ?>; 
-        let enchereActuelle = <?php echo $result['montant']; ?>;
-
-        if (enchereInput.value <= prixDepart) {
-            alert("Le montant de l'enchère doit être supérieur au prix de départ.");
-            return false;
-        }
-
-        if (enchereActuelle !== null && enchereInput.value <= enchereActuelle) {
-            alert("Le montant de l'enchère doit être supérieur à l'enchère actuelle.");
-            return false;
-        }
-
-        return true;
-    }
-</script>
     </body>
 </html>
