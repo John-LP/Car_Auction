@@ -98,5 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_
     // Appel de la méthode pour créer une enchère à partir des données du formulaire
     $enchere->createEnchereFromForm();
 }
+
 ?>
-<!-- Fin de construction -->
+<!-- Fin de contruction -->

@@ -7,7 +7,5 @@ session_unset();
 
 // Détruit la session actuelle
 session_destroy();
-
-// Redirige l'utilisateur vers la page d'accueil du site
-header("Location: http://localhost/exoPHP/car_auction/");
+header("Location: http://localhost/exoBocal/car_auction/");
 ?>

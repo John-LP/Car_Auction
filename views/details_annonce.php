@@ -1,5 +1,6 @@
 <?php
     session_start();
+
 ?>
 <html>
     <head>
@@ -16,6 +17,7 @@
  require_once __DIR__ . "/navbar.php";
  require_once __DIR__ . "./../classes/class_serveur.php";
  require_once __DIR__ . "./../classes/class_enchere.php";
+
 
 //Verifie que la variable 'Id_annonce' soit presente dans l'url et est envoyé avec la methode get quand l'utilisateur cliaue sur le lien
  if(isset($_GET['id_annonce'])) {
@@ -50,8 +52,10 @@
         echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
         echo "<p>ID de l'enchérisseur :" .  $_SESSION['id_utilisateur'] . "</p>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
-        echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
-        echo "</form>";
+        echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
+        echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
+        echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
+        echo "</form>";        
         // Fin de construction
         echo '<br><br>';
         echo '<a href="../">Retour</a>';
@@ -79,9 +83,11 @@
             echo "<p>Votre ID : " .  $_SESSION['id_utilisateur'] . "</p>";
             echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
             echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
-            echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
-            echo "</form>";
-            // Fin de construction
+            echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
+            echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
+            echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
+            echo "</form>";        
+            // Fin de construction;
             echo '<br><br>';
             echo '<a href="../">Retour</a>';
             echo '</div>';
