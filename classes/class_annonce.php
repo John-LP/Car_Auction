@@ -1,5 +1,5 @@
 <?php
-
+// Classe Annonces pour gérer les annonces
 class Annonces {
     protected $id_utilisateur;
     protected $prix_depart;
@@ -10,6 +10,7 @@ class Annonces {
     protected $annee;
     protected $description;
 
+    // Constructeur de la classe
     function __construct($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description) {
         $this->id_utilisateur = $id_utilisateur;
         $this->prix_depart = $prix_depart;
@@ -21,6 +22,7 @@ class Annonces {
         $this->description = $description;
     }
 
+    // Méthodes d'accès aux propriétés
     public function getId_utilisateur() {
         return $this->id_utilisateur;
     }
@@ -46,10 +48,16 @@ class Annonces {
         return $this->description;
     }
 
+    // Méthode pour créer une annonce à partir des données du formulaire
     public function createAnnonceFromForm($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description, $imagePath) {
+        // Connexion à la base de données
         require_once __DIR__ . "/class_serveur.php";
+        
+        // Préparation de la requête d'insertion
         $query = $dbh->prepare("INSERT INTO annonces (id_utilisateur, prix_depart, date_fin, modele, marque, puissance, annee, description, image_path)
         VALUES (:id_utilisateur, :prix_depart, :date_fin, :modele, :marque, :puissance, :annee, :description, :imagePath)");
+        
+        // Liaison des valeurs
         $query->bindValue(':id_utilisateur', $id_utilisateur);
         $query->bindValue(':prix_depart', $prix_depart);
         $query->bindValue(':date_fin', $date_fin);
@@ -59,8 +67,11 @@ class Annonces {
         $query->bindValue(':annee', $annee);
         $query->bindValue(':description', $description);
         $query->bindValue(':imagePath', $imagePath);
+        
+        // Exécution de la requête
         $query->execute();
 
+        // Vérification du succès de la création de l'annonce
         if ($query) {
             echo "<p>Votre annonce a bien été créée.</p>";
             usleep(1000000);
@@ -72,7 +83,9 @@ class Annonces {
     }
 }
 
+// Vérification si le formulaire est soumis en POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Création d'une instance de la classe Annonces avec les données du formulaire
     $annonce = new Annonces(
         $_POST['id_utilisateur'],
         $_POST['prix_depart'],
@@ -84,12 +97,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['description']
     );
 
+    // Définition du répertoire cible pour le téléchargement de l'image
     $targetDirectory = "E:/wamp64/www/images/";
     $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
     $imagePath = "http://localhost/images/" . basename($_FILES["image"]["name"]);
 
+    // Vérification et téléchargement du fichier image
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
         echo "Le fichier " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a été téléchargé.";
+
+        // Appel de la méthode pour créer une annonce à partir des données du formulaire
         $annonce->createAnnonceFromForm(
             $_POST['id_utilisateur'],
             $_POST['prix_depart'],
@@ -105,6 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
     }
 
+    // Vérification des propriétés du fichier image
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 

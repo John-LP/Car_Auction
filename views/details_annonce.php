@@ -47,7 +47,7 @@
         echo '<br>';
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
-        echo "<input type='number' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
+        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
         echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
         echo "</form>";
@@ -73,10 +73,13 @@
             echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
             echo "<p>" . $result['description'] . "</p>";
             echo '<br>';
-            echo "<div>";
-            echo "<input type='number' class='info inputEnchere' placeholder='Entrer vôtre enchere' ></input>";
-            echo "<a class='info'>Enchérir</a>";
-            echo "</div>";
+            // En construction
+            echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
+            echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
+            echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
+            echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
+            echo "</form>";
+            // Fin de construction
             echo '<br><br>';
             echo '<a href="../">Retour</a>';
             echo '</div>';
