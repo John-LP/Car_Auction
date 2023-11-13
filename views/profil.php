@@ -2,7 +2,7 @@
 <?php
   session_start();
   if(!isset($_SESSION['email'])) {
-    header("Location: ../views/profil");
+    header("Location: ../views/login");
     exit;
   }
 ?>
