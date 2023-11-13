@@ -28,7 +28,7 @@
             echo '<article>';
             echo '<section class="card">';
             echo '<div class="text-content">';
-            echo "<p><u>Votre ID unique à utiliser pour créer une annoce :</u> " . $result['id_utilisateur'] . "</p>";
+            echo "<p><u>Votre ID unique à utiliser pour créer une annonce ou pour enchérir :</u> " . $result['id_utilisateur'] . "</p>";
             echo '<br>';
             echo "<p><u>Nom :</u> " . $result['nom'] . "</p>";
             echo '<br>';
