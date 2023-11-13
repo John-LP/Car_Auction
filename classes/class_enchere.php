@@ -5,12 +5,14 @@ class Encheres {
     protected $id_annonce;
     protected $id_utilisateur;
     protected $date_heure_enchere;
+    protected $dbh; // Ajout de la propriété pour la connexion
 
-    function __construct($montant, $id_annonce,$id_utilisateur,$date_heure_enchere){
+    function __construct($montant, $id_annonce,$id_utilisateur,$date_heure_enchere,$dbh){
         $this->montant = $montant;
         $this->id_annonce = $id_annonce;
         $this->id_utilisateur = $id_utilisateur;
         $this->date_heure_enchere = $date_heure_enchere;
+        $this->dbh = $dbh;
     }
 
     public function getMontant(){
@@ -51,9 +53,25 @@ class Encheres {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_annonce'], $_POST['id_utilisateur'], $_POST['date_heure_enchere'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_annonce'], $_POST['date_heure_enchere'])) {
+    // Récupérer l'ID de l'utilisateur depuis la session
+    if (isset($_SESSION['user_id'])) {
+        $id_utilisateur = $_SESSION['user_id'];
+
+        // Autres variables du formulaire
+        $montant = $_POST['montant'];
+        $id_annonce = $_POST['id_annonce'];
+        $date_heure_enchere = $_POST['date_heure_enchere'];
+
+        // ... le reste de votre code
+    } else {
+        echo "Erreur : ID de l'utilisateur non trouvé dans la session.";
+    }
+}
     $dbh = new PDO("mysql:dbname=car_auction;host=127.0.0.1", "root", "");
-    $enchere = new Encheres($_POST['montant'], $_POST['id_annonce'], $_POST['id_utilisateur'], $_POST['date_heure_enchere']);
+    $enchere = new Encheres($_POST['montant'], $_POST['id_annonce'], $_POST['id_utilisateur'], $_POST['date_heure_enchere'], $dbh);
     $enchere->createEnchereFromForm();
 }
+
 ?>
 <!-- Fin de contruction -->

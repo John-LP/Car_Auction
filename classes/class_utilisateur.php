@@ -40,7 +40,7 @@
         if ($query) {
             echo "<p>Votre compte a bien été créée.</p>";
             usleep(1000000);
-            header("Location: http://localhost:8888/php/car_auction/index.php");
+            header("Location: http://localhost:8888/exoBocal/car_auction/index.php");
             exit;
         } else {
             echo "Erreur lors de la création de compte.";
