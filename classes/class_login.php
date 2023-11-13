@@ -27,8 +27,19 @@ if(isset($_POST['email'])) {
         // En cas de succès de la connexion, enregistrement de l'email dans la session
         $_SESSION['email'] = $email;
         $_SESSION['success'] = 'Connexion réussie';
-        $_SESSION['error'] = null;
         $_SESSION['success'] = null;
+
+        // Nouvelle requête pour obtenir l'id de l'utilisateur
+        $queryUserId = $dbh->prepare("SELECT id_utilisateur FROM utilisateurs WHERE email = :email");
+        $queryUserId->bindValue(':email', $email);
+        $queryUserId->execute();
+
+        // Récupération de l'id de l'utilisateur
+        $userId = $queryUserId->fetch(PDO::FETCH_ASSOC)['id_utilisateur'];
+
+        // Enregistrement de l'id de l'utilisateur dans la session
+        $_SESSION['id_utilisateur'] = $userId;
+
         header("Location: http://localhost/exoPHP/car_auction");
         exit; 
     }

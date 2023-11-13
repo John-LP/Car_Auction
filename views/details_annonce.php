@@ -48,6 +48,7 @@
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
         echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
+        echo "<p>ID de l'enchérisseur :" .  $_SESSION['id_utilisateur'] . "</p>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
         echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
         echo "</form>";
@@ -75,6 +76,7 @@
             echo '<br>';
             // En construction
             echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
+            echo "<p>Votre ID : " .  $_SESSION['id_utilisateur'] . "</p>";
             echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
             echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
             echo "<button class='info inputEnchere' type='submit' class='info'>Enchérir</button>";
@@ -92,5 +94,24 @@
     }
 }
     ?>
+    <script>
+    function validateEnchere() {
+        let enchereInput = document.getElementById('enchere');
+        let prixDepart = <?php echo $result['prix_depart']; ?>; 
+        let enchereActuelle = <?php echo $result['montant']; ?>;
+
+        if (enchereInput.value <= prixDepart) {
+            alert("Le montant de l'enchère doit être supérieur au prix de départ.");
+            return false;
+        }
+
+        if (enchereActuelle !== null && enchereInput.value <= enchereActuelle) {
+            alert("Le montant de l'enchère doit être supérieur à l'enchère actuelle.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
     </body>
 </html>
