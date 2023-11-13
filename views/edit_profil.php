@@ -18,7 +18,7 @@
 } else {
     if (isset($_GET['id'])) {
         $id_utilisateur = $_GET['id'];
-
+        
         require_once __DIR__ . "./../classes/class_serveur.php";
 
         $query = $dbh->prepare("SELECT * FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");

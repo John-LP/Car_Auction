@@ -64,7 +64,7 @@ class Annonces {
         if ($query) {
             echo "<p>Votre annonce a bien été créée.</p>";
             usleep(1000000);
-            header("Location: http://localhost/exoPHP/car_auction/index.php");
+            header("Location: http://localhost:8888/php/car_auction/index.php");
             exit;
         } else {
             echo "Erreur lors de la création de l'annonce.";

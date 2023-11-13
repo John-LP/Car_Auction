@@ -1,4 +1,55 @@
-<!DOCTYPE html>
+<?php class Utilisateur {
+    protected $id_utilisateur;
+    protected $nom;
+    protected $prenom;
+    protected $email;
+    protected $mdp;
+
+
+    function __construct( $nom, $prenom, $email, $mdp) {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+        $this->mdp = $mdp;
+    }
+
+    public function getNom() {
+        return $this->nom;
+    }
+    public function getPrenom() {
+        return $this->prenom;
+    }
+    public function getEmail() {
+        return $this->email;
+    }
+    public function getMdp() {
+        return $this->mdp;
+    }
+   
+    public function createAnnonceFromForm($nom, $prenom, $email, $mdp) {
+        require_once __DIR__ . "/class_serveur.php";
+        $query = $dbh->prepare("INSERT INTO annonces ( nom, prenom, email, mdp)
+        VALUES (:nom, :prenom, :email, :mdp, )");
+        $query->bindValue(':nom', $nom);
+        $query->bindValue(':prenom', $prenom);
+        $query->bindValue(':email', $email);
+        $query->bindValue(':mdp', $mdp);
+   
+        $query->execute();
+
+        if ($query) {
+            echo "<p>Votre compte a bien été créée.</p>";
+            usleep(1000000);
+            header("Location: http://localhost:8888/php/car_auction/index.php");
+            exit;
+        } else {
+            echo "Erreur lors de la création de compte.";
+        }
+    }
+}
+    ?>
+    
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

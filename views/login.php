@@ -67,7 +67,7 @@
                                                 <button type="submit"
                                                     class="btn mt-4">Se connecter</button>
                                                 <p class="mb-0 mt-4 text-center"><a
-                                                        href=""
+                                                        href="../"
                                                         class="link">Mot de passe oublié?</a></p>
                                                         </form>
                                             </div>
