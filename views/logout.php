@@ -7,5 +7,5 @@ session_unset();
 
 // Détruit la session actuelle
 session_destroy();
-header("Location: http://localhost/exoBocal/car_auction/");
+header("Location: http://localhost:8888/php//car_auction/");
 ?>
