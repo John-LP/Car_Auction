@@ -1,12 +1,11 @@
+<!-- Page affichant le profil de l'utilisateur -->
 <?php
-session_start();
-
-if(!isset($_SESSION['email'])) {
-    header("Location: http://localhost/exoPHP/car_auction/views/login");
+  session_start();
+  if(!isset($_SESSION['email'])) {
+    header("Location: ../views/profil");
     exit;
-}
+  }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +28,7 @@ if(!isset($_SESSION['email'])) {
             echo '<article>';
             echo '<section class="card">';
             echo '<div class="text-content">';
-            echo "<p><u>Votre ID unique à utiliser pour créer une annoce :</u> " . $result['id_utilisateur'] . "</p>";
+            echo "<p><u>Votre ID unique à utiliser pour créer une annonce ou pour enchérir :</u> " . $result['id_utilisateur'] . "</p>";
             echo '<br>';
             echo "<p><u>Nom :</u> " . $result['nom'] . "</p>";
             echo '<br>';

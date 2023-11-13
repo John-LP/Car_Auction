@@ -67,7 +67,7 @@
                                                 <button type="submit"
                                                     class="btn mt-4">Se connecter</button>
                                                 <p class="mb-0 mt-4 text-center"><a
-                                                        href=""
+                                                        href="../"
                                                         class="link">Mot de passe oublié?</a></p>
                                                         </form>
                                             </div>
@@ -122,6 +122,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            <ul>Vous devez être connecté(e) pour accéder aux pages suivantes : 
+                                <li>Créer une annonce</li>
+                                <li>Mes enchères</li>
+                                <li>Mon profil</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

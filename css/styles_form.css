@@ -16,11 +16,11 @@ h1 {
 #contactForm {
   border: 6px solid 3324be;
   padding: 2em;
-  width: 400px;
+  width: 30em;
   text-align: center;
   background: #1f2029;
   position: fixed;
-  top: 50%;
+  top: 54%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
