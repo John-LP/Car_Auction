@@ -52,8 +52,7 @@ class Encheres {
 
         // Vérification du succès de l'enchère
         if ($query) {
-            var_dump($query); // (Optionnel) Affiche les détails de la requête dans la console
-            echo "<p>Votre enchère a bien été faite.</p>";
+            echo "<p>Votre enchère a bien été prise en compte.</p>";
             usleep(1000000);
             header("Location: ../");
             exit;
@@ -69,16 +68,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_
         header("Location: ../views/login");
         exit;
     } else {
-    if (isset($_SESSION['id_utilisateur'])) {
-        $id_utilisateur = $_SESSION['id_utilisateur'];
+        if (isset($_SESSION['id_utilisateur'])) {
+            $id_utilisateur = $_SESSION['id_utilisateur'];
 
-        // Création de l'objet Encheres
-        $enchere = new Encheres($_POST['montant'], $_POST['id_annonce'], $id_utilisateur, $_POST['date_heure_enchere'], $dbh);
+            // Récupérer id_annonce depuis le formulaire
+            $id_annonce = $_POST['id_annonce'];
 
-        // Appel de la méthode pour créer l'enchère
-        $enchere->createEnchereFromForm();
+            $query = $dbh->prepare(
+                "SELECT
+                    annonces.id_annonce,
+                    annonces.prix_depart,
+                    COALESCE(MAX(encheres.montant), annonces.prix_depart) as montant_max,
+                    annonces.id_utilisateur as id_utilisateur_annonce
+                FROM
+                    annonces 
+                LEFT JOIN
+                    encheres ON annonces.id_annonce=encheres.id_annonce       
+                WHERE 
+                    annonces.id_annonce = :id_annonce");
+
+            // Lie la valeur à la variable dans la requête SQL
+            $query->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
+            $query->execute();
+            $result = $query->fetch();
+
+            if ($_POST['montant'] > $result['prix_depart'] && $_POST['montant'] > $result['montant_max'] && $id_utilisateur != $result['id_utilisateur_annonce']) {
+                // Création de l'objet Encheres
+                $enchere = new Encheres($_POST['montant'], $id_annonce, $id_utilisateur, $_POST['date_heure_enchere'], $dbh);
+            
+                // Appel de la méthode pour créer l'enchère
+                $enchere->createEnchereFromForm();
+            } else {
+                echo "Le montant de votre enchère doit être supérieur au prix actuel du produit et à son enchère la plus haute, et vous ne pouvez pas enchérir sur vos propres annonces.";
+                echo "<a href='..' >Retour</a>";
+            }
+        }
     }
-}
 }
 
 ?>

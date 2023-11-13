@@ -1,8 +1,8 @@
 <?php
     session_start();
-
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta property="og:type" content="website" />
@@ -11,8 +11,8 @@
         <link href="./../css/styles_card.css" rel="stylesheet" type="text/css" />
         <link href="./../css/styles_navbar.css" rel="stylesheet">
     </head>
-    <body>
-    <?php
+<body>
+<?php
    
  require_once __DIR__ . "/navbar.php";
  require_once __DIR__ . "./../classes/class_serveur.php";
@@ -25,16 +25,30 @@
 
     // Une requete SQL qui selectionnes toutes les colones de la table annonce, ainsi que quelques colonnes de la table "encheres" et "utilisateurs". 
     // Fait des jointures et la conditions where filtre les annonces pour obtenir l'identifiant specifique à celle-ci.
-    $query = $dbh->prepare("SELECT annonces.*, encheres.montant, encheres.id_utilisateur, utilisateurs.nom, utilisateurs.prenom FROM annonces 
-        LEFT JOIN encheres ON annonces.id_annonce=encheres.id_annonce 
-        LEFT JOIN utilisateurs ON encheres.id_utilisateur=utilisateurs.id_utilisateur         
-        WHERE annonces.id_annonce = :id_annonce");
+    $query = $dbh->prepare(
+       "SELECT 
+            annonces.*,
+            encheres.montant,
+            encheres.id_utilisateur,
+            utilisateurs.nom,
+            utilisateurs.prenom
+        FROM 
+            annonces 
+        LEFT JOIN 
+            encheres ON annonces.id_annonce=encheres.id_annonce 
+        LEFT JOIN
+            utilisateurs ON encheres.id_utilisateur=utilisateurs.id_utilisateur
+        WHERE
+            annonces.id_annonce = :id_annonce
+        ORDER BY
+            encheres.montant DESC
+        LIMIT 1 ");
 
     // lie la valeur à la variable dans la requête SQL. Cela aide à prévenir les attaques par injection SQL en assurant que la valeur de l'identifiant est traitée comme un entier.
     $query->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
     $query->execute();
 
-    while ($result = $query->fetch()) {
+    $result = $query->fetch();
         echo '<article>';
         echo '<section class="card">';
         echo '<div class="text-content">';
@@ -53,7 +67,7 @@
         echo '<br>';
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
-        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='montant'></input>";
+        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='montant' required></input>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
         echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
         echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
@@ -68,7 +82,7 @@
         echo '</section>';
         echo '</article>';
     } 
-}
+
 
     ?>
     </body>
