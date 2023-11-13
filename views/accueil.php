@@ -28,7 +28,7 @@
         echo '<br><br>';
         echo "<h3>" . $result['marque'] . " " . $result['modele'] . "</h3>";
         echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
-        echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . "€" . "</p>";
+        echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
         echo "<a class='info' href='./views/details_annonce.php?id_annonce=" . $result['id_annonce'] . "'>En savoir plus</a>";
         echo '</div>';

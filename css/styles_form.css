@@ -59,6 +59,17 @@ textarea {
   cursor: pointer;
 }
 
+.formBtn:hover {
+  background: #1f2029;
+  color: #ffeba7;
+  border: 2px solid #ffeba7;
+  transition: .6s;
+}
+
+.formBtn:not(:hover) {
+  transition: .6s;
+}
+
 @media all and (max-width: 770px) {
   #contactForm {
     padding: 1em!important;
