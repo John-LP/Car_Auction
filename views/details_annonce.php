@@ -48,8 +48,8 @@
         echo "<p>" . $result['description'] . "</p>";
         echo '<br>';
         // En construction
-        echo "<form method='POST' action='" . $_SERVER['PHP_SELF'] . "'>";
-        echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre enchère' name='montant'></input>";
+        echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
+        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='enchere'></input>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
         echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
         echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
@@ -79,7 +79,7 @@
             echo '<br>';
             // En construction
             echo "<form method='POST' action='" . $_SERVER['PHP_SELF'] . "'>";
-            echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre enchère' name='montant'></input>";
+            echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrez votre enchère' name='montant'></input>";
             echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
             echo "<input type='number' class='info inputEnchere' placeholder='Entrez votre ID' name='id_utilisateur' value='" . $result['id_utilisateur'] . "'>";
             echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
