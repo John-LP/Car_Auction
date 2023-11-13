@@ -17,6 +17,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./../css/styles_card.css" rel="stylesheet" type="text/css" />
     <link href="./../css/styles_navbar.css" rel="stylesheet">
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -40,18 +50,18 @@
         echo '<article>';
         echo '<section class="card">';
         echo '<div class="text-content">';
-        echo "<p><u>Votre ID unique à utiliser pour créer une annonce ou pour enchérir :</u> " . $result['id_utilisateur'] . "</p>";
-        echo '<br>';
         echo "<p><u>Nom :</u> " . $result['nom'] . "</p>";
         echo '<br>';
         echo "<p><u>Prénom :</u> " . $result['prenom'] . "</p>";
         echo '<br>';
         echo "<p><u>Email :</u> " . $result['email'] . "</p>";
         echo "<br>";
-
+        echo "<p><u>Mot de passe :</u> <input class='mdp' type='password' id='password' value='" . $result['mdp'] . "' disabled></p>";
+        echo "<br>";
+        // Bouton pour afficher ou cacher le mot de passe
+        echo "<a class='info' onclick='togglePassword()'>Afficher/Cacher Mot de passe</a><br>";
         // Lien pour la modification du profil
-        echo "<a class='info' href='./edit_profil.php'>Modifier</a>";
-
+        echo "<a class='info' href='./edit_profil.php'>Modifier mes informations</a>";
         echo '<br><br>';
         echo '</section>';
         echo '</article>';

@@ -84,16 +84,11 @@ article {
   margin-right: 1vw;
 }
 
-/* a {
-  border: 3px solid #ffeba7;
+.mdp {
+  background: none;
+  border: none;
   color: white;
-  align-self: flex-start;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 12px;
-  transition: 400ms all;
-
-} */
+}
 
 @media all and (max-width: 1100px) {
   body {

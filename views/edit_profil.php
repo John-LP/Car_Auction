@@ -34,12 +34,14 @@ if (!isset($_SESSION['email'])) {
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $email = $_POST['email'];
+        $mdp = $_POST['mdp'];
 
         // Mise à jour des informations de l'utilisateur
-        $query = $dbh->prepare("UPDATE utilisateurs SET nom = :nom, prenom = :prenom, email = :email WHERE id_utilisateur = :id_utilisateur");
+        $query = $dbh->prepare("UPDATE utilisateurs SET nom = :nom, prenom = :prenom, email = :email, mdp = :mdp WHERE id_utilisateur = :id_utilisateur");
         $query->bindValue(':nom', $nom);
         $query->bindValue(':prenom', $prenom);
         $query->bindValue(':email', $email);
+        $query->bindValue(':mdp', $mdp);
         $query->bindValue(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
         $query->execute();
 
@@ -73,6 +75,10 @@ if (!isset($_SESSION['email'])) {
 
         echo '<label for="email">Email :</label><br><br>';
         echo '<input type="email" class="info inputEnchere id="email" name="email" value="' . $result['email'] . '" required>';
+        echo '<br><br>';
+
+        echo '<label for="email">Mot de passe :</label><br><br>';
+        echo '<input type="text" class="info inputEnchere id="mdp" name="mdp" value="' . $result['mdp'] . '" required>';
         echo '<br><br>';
 
         echo "<button class='login-button' type='submit'>Enregistrer</button>";

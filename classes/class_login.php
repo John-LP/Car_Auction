@@ -21,7 +21,7 @@ if(isset($_POST['email'])) {
     if($query->rowCount() == 0) {
         // En cas d'échec de connexion, redirection avec un message d'erreur
         $_SESSION['error'] = 'Identifiant ou mot de passe incorrect';
-        header("Location: http://localhost:8888/php/car_auction/views/login");
+        header("Location: ./views/login");
         exit; 
     } else {
         // En cas de succès de la connexion, enregistrement de l'email dans la session
@@ -40,7 +40,7 @@ if(isset($_POST['email'])) {
         // Enregistrement de l'id de l'utilisateur dans la session
         $_SESSION['id_utilisateur'] = $userId;
 
-        header("Location: http://localhost:8888/php//car_auction");
+        header("Location: ../");
         exit; 
     }
 }
