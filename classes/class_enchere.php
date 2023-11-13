@@ -5,7 +5,7 @@ class Encheres {
     protected $id_annonce;
     protected $id_utilisateur;
     protected $date_heure_enchere;
-    protected $dbh; // Ajout de la propriété pour la connexion
+    protected $dbh;
 
     function __construct($montant, $id_annonce, $id_utilisateur, $date_heure_enchere, $dbh){
         $this->montant = $montant;
@@ -65,6 +65,10 @@ class Encheres {
 
 // Vérification si le formulaire est soumis en POST et si les données nécessaires sont présentes
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_annonce'], $_POST['date_heure_enchere'])) {
+    if(!isset($_SESSION['email'])) {
+        header("Location: ../views/login");
+        exit;
+    } else {
     if (isset($_SESSION['id_utilisateur'])) {
         $id_utilisateur = $_SESSION['id_utilisateur'];
 
@@ -75,5 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_
         $enchere->createEnchereFromForm();
     }
 }
+}
+
 ?>
 <!-- Fin de construction -->

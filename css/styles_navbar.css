@@ -318,7 +318,7 @@ nav {
     bottom: 0;
   }
   .nav-item:not(.is-active):hover{
-    color: #333;
+    color: #b39943;
   }
   
   .nav-item.is-clicked:before {

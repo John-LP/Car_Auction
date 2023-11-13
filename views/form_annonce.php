@@ -36,7 +36,6 @@
       <input type="date" name="date_fin" min="<?= date('Y-m-d') ?>" required />
 
       <!-- Champs pour les détails de l'annonce -->
-      <input placeholder="Votre ID (visible depuis l'onglet 'Mon Profil')" type="number" name="id_utilisateur" required />
       <input placeholder="Marque du véhicule" type="text" name="marque" required />
       <input placeholder="Modèle" type="text" name="modele" required />
       <input placeholder="Prix de départ" type="number" name="prix_depart" required min="0" />

@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    $id_utilisateur = $_SESSION['id_utilisateur'];
 // Classe Annonces pour gérer les annonces
 class Annonces {
     protected $id_utilisateur;
@@ -52,7 +54,6 @@ class Annonces {
     public function createAnnonceFromForm($id_utilisateur, $prix_depart, $date_fin, $modele, $marque, $puissance, $annee, $description, $imagePath) {
         // Connexion à la base de données
         require_once __DIR__ . "/class_serveur.php";
-        
         // Préparation de la requête d'insertion
         $query = $dbh->prepare("INSERT INTO annonces (id_utilisateur, prix_depart, date_fin, modele, marque, puissance, annee, description, image_path)
         VALUES (:id_utilisateur, :prix_depart, :date_fin, :modele, :marque, :puissance, :annee, :description, :imagePath)");
@@ -87,7 +88,7 @@ class Annonces {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Création d'une instance de la classe Annonces avec les données du formulaire
     $annonce = new Annonces(
-        $_POST['id_utilisateur'],
+        $id_utilisateur,
         $_POST['prix_depart'],
         $_POST['date_fin'],
         $_POST['modele'],
@@ -108,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Appel de la méthode pour créer une annonce à partir des données du formulaire
         $annonce->createAnnonceFromForm(
-            $_POST['id_utilisateur'],
+            $id_utilisateur,
             $_POST['prix_depart'],
             $_POST['date_fin'],
             $_POST['modele'],
