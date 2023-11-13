@@ -55,7 +55,7 @@ class Utilisateur {
             echo "<p>Votre compte a bien été créé.</p>";
             // Pause d'une seconde avant la redirection
             usleep(1000000);
-            header("Location: http://localhost:8888/exoBocal/car_auction/index.php");
+            header("Location: http://localhost/exoPHP/car_auction/index.php");
             exit;
         } else {
             echo "Erreur lors de la création du compte.";
