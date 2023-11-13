@@ -26,8 +26,8 @@
         return $this->mdp;
     }
    
-    public function createAnnonceFromForm($nom, $prenom, $email, $mdp) {
-        require_once __DIR__ . "/class_serveur.php";
+    public function createUtilisateur($nom, $prenom, $email, $mdp) {
+        require_once __DIR__ . "/class_utilisateur.php";
         $query = $dbh->prepare("INSERT INTO annonces ( nom, prenom, email, mdp)
         VALUES (:nom, :prenom, :email, :mdp, )");
         $query->bindValue(':nom', $nom);
