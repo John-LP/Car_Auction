@@ -1,12 +1,11 @@
+<!-- Page affichant le profil de l'utilisateur -->
 <?php
-session_start();
-
-if(!isset($_SESSION['email'])) {
-    header("Location: http://localhost/exoPHP/car_auction/views/login");
+  session_start();
+  if(!isset($_SESSION['email'])) {
+    header("Location: ../views/profil");
     exit;
-}
+  }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

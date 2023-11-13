@@ -122,6 +122,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            <ul>Vous devez être connecté(e) pour accéder aux pages suivantes : 
+                                <li>Créer une annonce</li>
+                                <li>Mes enchères</li>
+                                <li>Mon profil</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,8 @@
             exit; 
         } else {
             $_SESSION['email'] = $email;
-            $_SESSION['success'] = 'Vous êtes bien connecté !';
+            $_SESSION['success'] = 'Connexion réussie';
+            usleep(1500000);
             header("Location: http://localhost/exoPHP/car_auction");
             exit; 
         }

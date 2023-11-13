@@ -1,3 +1,11 @@
+<!-- L'utilisateur peut suivre les annonces sur lesquelles il a enchérit et celles qu'il a remporté -->
+<?php
+  session_start();
+  if(!isset($_SESSION['email'])) {
+    header("Location: ../views/encheres_acheteur");
+    exit;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
