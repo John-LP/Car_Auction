@@ -55,7 +55,11 @@ class Encheres {
             var_dump($query); // (Optionnel) Affiche les détails de la requête dans la console
             echo "<p>Votre enchère a bien été faite.</p>";
             usleep(1000000);
+<<<<<<< HEAD
+            header("Location: http://localhost:8888/php/car_auction/index.php");
+=======
             header("Location: http://localhost/exoPHP/car_auction/index.php");
+>>>>>>> c27b5b60271a22cb57c3d6a377d12d27cbd52310
             exit;
         } else {
             echo "Erreur lors de votre enchère.";

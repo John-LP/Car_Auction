@@ -1,3 +1,4 @@
+
 <?php 
 class Utilisateur {
     // Propriétés protégées
@@ -55,7 +56,11 @@ class Utilisateur {
             echo "<p>Votre compte a bien été créé.</p>";
             // Pause d'une seconde avant la redirection
             usleep(1000000);
+<<<<<<< HEAD
+            header("Location: http://localhost:8888/php/car_auction/index.php");
+=======
             header("Location: http://localhost/exoPHP/car_auction/index.php");
+>>>>>>> c27b5b60271a22cb57c3d6a377d12d27cbd52310
             exit;
         } else {
             echo "Erreur lors de la création du compte.";
