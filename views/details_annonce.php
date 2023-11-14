@@ -30,6 +30,7 @@
             annonces.*,
             encheres.montant,
             encheres.id_utilisateur,
+            encheres.date_heure_enchere,
             utilisateurs.nom,
             utilisateurs.prenom
         FROM 
@@ -57,7 +58,7 @@
         echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
         // Si il y une enchère sur l'annonce elle s'affichera dans 'enchère actuelle' sinon 'Aucune' s'affichera
         if ($result['montant'] >= 1) {
-            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . " ID " . $result['id_utilisateur'] . "</p>";
+            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . " ID " . $result['id_utilisateur'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
         } else {
             echo "<p><u>Enchère actuelle :</u> Aucune</p>";
         }
