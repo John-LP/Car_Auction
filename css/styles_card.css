@@ -79,6 +79,9 @@ article {
   min-width: calc(640px + 248px);
 }
 .inputEnchere {
+  justify-content: center;
+  align-items: center;
+  display: flex;
   border: 3px solid #f2f2f2;
   color: #ffffff;
   align-self: flex-start;
@@ -134,8 +137,7 @@ article {
 .check {
   margin-left: 1em;
 }
-
-h2 {
+.h2accueil {
   margin-top: 1em;
   margin-left: 30em;
 }
@@ -193,6 +195,48 @@ h2 {
 .card2 .visual img {
   height: 110%;
 }
+.card_edit_profil {
+  border: 2px solid #ffeba7;
+  margin-top: 3em;
+  background: #1f2029;
+  border-radius: 24px 24px 24px 48px;
+  padding: 48px 48px 48px 48px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-self: flex-start;
+  position: relative;
+}
+.card_edit_profil .text-content {
+  display: flex;
+  flex-direction: column;
+  width: calc(60vw - 192px);
+}
+.card_edit_profil .text-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+  max-width: 20ch;
+  color: #fff;
+}
+.card_edit_profil .text-content p {
+  margin: 15px 0 15px 0;
+  color: #fff;
+}
+.card_edit_profil .text-content a {
+  border: 2px solid #ffeba7;
+  color: white;
+  align-self: flex-start;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: 400ms all;
+}
+.card_edit_profil .text-content a:hover {
+  background: #ffeba7;
+  color: #1f2029;
+  border: 2px solid #1f2029;
+}
+
 .btn {
   position: relative;
   display: inline-block;
@@ -397,7 +441,7 @@ h2 {
       margin-left: 1em!important;
     }
   
-    h2{
+    .h2accueil{
       margin-top: 1em!important;
       margin-left: 3.5em!important;
     }
@@ -427,7 +471,7 @@ h2 {
     margin-left: 1em;
   }
 
-  h2{
+  .h2accueil {
     margin-top: 1em;
     margin-left: 14.5em;
   }
@@ -505,7 +549,7 @@ h2 {
   margin-left: 1em;
 }
 
-h2{
+.h2accueil{
   margin-top: 1em;
   margin-left: 21.5em!important;
 }

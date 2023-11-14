@@ -103,6 +103,15 @@ nav {
   font-size: 1rem;
   cursor: pointer;
 }
+.edit_profil-button {
+  background-color: transparent;
+  border: 1.5px solid #f2f5f7;
+  border-radius: 2em;
+  padding: 0.6rem 0.8rem;
+  margin-left: 3.5vw;
+  font-size: 1rem;
+  cursor: pointer;
+}
 .login-button:hover {
   color: #ffeba7;
   border: 1.5px solid #ffeba7;

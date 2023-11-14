@@ -52,7 +52,7 @@ if (!isset($_SESSION['email'])) {
         // Afficher le formulaire de modification du profil
         echo '<form method="post" action="./edit_profil.php">';
         echo '<article>';
-        echo '<section class="card">';
+        echo '<section class="card_edit_profil">';
         echo '<class="info inputEnchere">';
         echo '<h2>Modifier mes infos</h2><br><br><br>';
 
@@ -81,7 +81,7 @@ if (!isset($_SESSION['email'])) {
         echo '<input type="text" class="info inputEnchere id="mdp" name="mdp" value="' . $result['mdp'] . '" required>';
         echo '<br><br>';
 
-        echo "<button class='login-button' type='submit'>Enregistrer</button>";
+        echo "<button class='edit_profil-button' type='submit'>Enregistrer</button>";
         echo '</section>';
         echo '</article>';
         echo '</form>';

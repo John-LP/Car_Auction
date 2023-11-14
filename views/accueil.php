@@ -16,7 +16,7 @@
             <input class='check' type="checkbox" id="filter" name="filter" value="toutes" > Toutes
             <input class='check' type="checkbox" id="filter" name="filter" value="en_cours" > En cours
             <input class='check' type="checkbox" id="filter" name="filter" value="terminees"> Terminées
-            <input class='btn_filter' type="submit" value="Appliquer">
+            <input class='btn_filter' type="submit" value="Rechercher">
         </form>
     </div>
     <?php
@@ -36,16 +36,16 @@
         $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                         INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur WHERE annonces.date_fin > NOW()");
         $query->execute();
-        echo "<h2><u>Enchères en cours</u></h2>";
+        echo "<h2 class='h2accueil'><u>Enchères en cours</u></h2>";
 
         } elseif ($filter_value == 'terminees') {
             // Requête pour récupérer toutes les annonces avec les détails des utilisateurs associés
             $query = $dbh->prepare("SELECT annonces.*, utilisateurs.nom, utilisateurs.prenom FROM annonces 
                             INNER JOIN utilisateurs ON annonces.id_utilisateur = utilisateurs.id_utilisateur WHERE annonces.date_fin < NOW()");
             $query->execute();
-            echo "<h2><u>Enchères terminées</u></h2>";
+            echo "<h2 class='h2accueil'><u>Enchères terminées</u></h2>";
             } else {
-                echo "<h2><u>Toutes les enchères</u></h2>";
+                echo "<h2 class='h2accueil'><u>Toutes les enchères</u></h2>";
             }
 // Affichage des annonces récupérées
 while ($result = $query->fetch()) {
