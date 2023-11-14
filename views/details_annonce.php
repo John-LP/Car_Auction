@@ -22,7 +22,7 @@
 //Verifie que la variable 'Id_annonce' soit presente dans l'url et est envoyé avec la methode get quand l'utilisateur cliaue sur le lien
  if(isset($_GET['id_annonce'])) {
     $id_annonce = $_GET['id_annonce'];
-
+    $date_actuelle = new DateTime();
     // Une requete SQL qui selectionnes toutes les colones de la table annonce, ainsi que quelques colonnes de la table "encheres" et "utilisateurs". 
     // Fait des jointures et la conditions where filtre les annonces pour obtenir l'identifiant specifique à celle-ci.
     $query = $dbh->prepare(
@@ -57,15 +57,21 @@
         echo "<p><u>Année :</u>" . " " . $result['annee'] . "</p>";
         echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
         // Si il y une enchère sur l'annonce elle s'affichera dans 'enchère actuelle' sinon 'Aucune' s'affichera
-        if ($result['montant'] >= 1) {
-            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
+        if (new DateTime($result['date_fin']) > $date_actuelle) {
+            if ($result['montant'] >= 1) {
+                echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
+            } else {
+                echo "<p><u>Enchère actuelle :</u> Aucune</p>";
+            }
         } else {
-            echo "<p><u>Enchère actuelle :</u> Aucune</p>";
+            echo "<p>" . $result['nom'] . " " . $result['prenom'] . "a remporté le bien" . "<br>" . "avec une enchère de " . $result['montant'] . " €" . "</p>";
         }
-        echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . "</p>";
+        echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . " (exclu)"  . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
         echo "<p>" . $result['description'] . "</p>";
         echo '<br>';
+        // Vérifier si la date de fin est supérieure à la date actuelle
+        if (new DateTime($result['date_fin']) > $date_actuelle) {
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
         echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrez votre enchère' name='montant' required></input>";
@@ -80,6 +86,10 @@
             </button>";
         echo "</form>";        
         // Fin de construction
+        } else {
+            echo '<p>L\'enchère est terminée depuis ' . $result['date_fin'] . '</p>';
+        }
+        
         echo '<br><br>';
         echo '<a href="../">Retour</a>';
         echo '</div>';
