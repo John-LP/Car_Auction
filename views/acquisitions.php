@@ -86,7 +86,7 @@
         echo '<article>';
         echo '<section class="card">';
         echo '<div class="text-content">';
-        echo "<p>Vous n'avez aucune enchere remporter</p>";
+        echo "<p>Vous n'avez aucune enchère remportée.</p>";
         echo '<a href="../">Retour</a>';
         echo '</div>';
         echo '</section>';

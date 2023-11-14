@@ -99,8 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['montant'], $_POST['id_
                 // Appel de la méthode pour créer l'enchère
                 $enchere->createEnchereFromForm();
             } else {
+                echo '<article>';
+                echo '<section class="card">';
+                echo '<div class="text-content">';
                 echo "Le montant de votre enchère doit être supérieur au prix actuel du produit et à son enchère la plus haute, et vous ne pouvez pas enchérir sur vos propres annonces.";
+                echo "<br><br>";
                 echo "<a href='..' >Retour</a>";
+                echo '</div>';
+                echo '</section>';
+                echo '</article>';
             }
         }
     }

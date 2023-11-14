@@ -21,7 +21,7 @@ if(isset($_POST['email'])) {
     if($query->rowCount() == 0) {
         // En cas d'échec de connexion, redirection avec un message d'erreur
         $_SESSION['error'] = 'Identifiant ou mot de passe incorrect';
-        header("Location: http://localhost/exoBocal/car_auction/views/login.php");
+        header("Location: http://localhost/exoPHP/car_auction/views/login.php");
         exit; 
     } else {
         // En cas de succès de la connexion, enregistrement de l'email dans la session

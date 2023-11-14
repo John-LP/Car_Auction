@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     // Définition du répertoire cible pour le téléchargement de l'image
-    $targetDirectory = "C:/wamp64/www/images/";
+    $targetDirectory = "E:/wamp64/www/images/";
     $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
     $imagePath = "http://localhost/images/" . basename($_FILES["image"]["name"]);
 
