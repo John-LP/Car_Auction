@@ -64,7 +64,11 @@
                 echo "<p><u>Enchère actuelle :</u> Aucune</p>";
             }
         } else {
+            if ($result['montant']) {
             echo "<p>" . $result['nom'] . " " . $result['prenom'] . "a remporté le bien" . "<br>" . "avec une enchère de " . $result['montant'] . " €" . "</p>";
+            } else {
+                echo "<p>Aucune offre n'a été faite pour cette annonce.</p>";
+            }
         }
         echo "<p><u>Échéance de l'enchère :</u> " . $result['date_fin'] . " (exclu)"  . "</p>";
         echo "<p><u>Puissance :</u> " . $result['puissance'] . " Ch" . "</p>";
