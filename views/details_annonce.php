@@ -65,7 +65,7 @@
             }
         } else {
             if ($result['montant']) {
-            echo "<p>" . $result['nom'] . " " . $result['prenom'] . "a remporté le bien" . "<br>" . "avec une enchère de " . $result['montant'] . " €" . "</p>";
+            echo "<p>" . $result['nom'] . " " . $result['prenom'] . " a remporté le bien" . "<br>" . "avec une enchère de " . $result['montant'] . " €" . "</p>";
             } else {
                 echo "<p>Aucune offre n'a été faite pour cette annonce.</p>";
             }
