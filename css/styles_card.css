@@ -108,100 +108,38 @@ article {
   transition: 1s;
 }
 
-@media all and (max-width: 1100px) {
-  body {
-    padding: 96px 48px 24px;
-  }
-  article {
-    width: 100%;
-    min-width: 100%;
-  }
-  section.card {
-    margin-top: 10em!important;
-    min-width: 100%;
-  }
-  section.card .text-content {
-    width: 100%;
-  }
-}
-@media all and (max-width: 720px) {
-  body {
-    padding: 48px 24px 0;
-  }
-  section.card {
-    margin-top: 8em;
-    padding: 88px 36px 36px;
-    flex-direction: column;
-    border-radius: 24px;
-  }
-  section.card .text-content h3 {
-    max-width: calc(100% - 150px);
-    font-size: 1em;
-  }
-  section.card .text-content p,
-  section.card .text-content a {
-    font-size: 0.8em;
-  }
-  section.card .visual {
-    width: 15em;
-    height: 10em;
-    right: 16px;
-    left: auto;
-    border-radius: 30px;
-  }
-  section.card .visual img {
-    width: 100%;
-    height: auto;
-  }
-  .card2 {
-    border: 2px solid #ffeba7!important;
-    margin-top: 8em!important;
-    background: #1f2029!important;
-    border-radius: 24px 24px 24px 48px!important;
-    padding: 0!important;
-    display: flex!important;
-    flex-direction: row!important;
-    align-self: flex-start!important;
-    position: relative!important;
-    justify-content: center;
-    align-items: center;
-  }
-  .card2 .text-content {
-    display: flex!important;
-    flex-direction: column!important;
-    width: 20em!important;
-  }
-  .card2 .text-content h3 {
-    margin: 0;
-    font-size: 1.5em;
-    max-width: 20ch;
-    color: #fff;
-  }
-  .card2 .text-content p {
-    margin: 15px 0 15px 0;
-    color: #fff;
-  }
-  .card2 .text-content a {
+.btn_filter {
+    background: #1f2029;
     border: 2px solid #ffeba7;
-    color: white;
-    align-self: flex-start;
-    text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 12px;
-    transition: 400ms all;
-  }
-  .card2 .text-content a:hover {
-    background: #ffeba7;
-    color: #1f2029;
-    border: 2px solid #1f2029;
-  }
+    border-radius: 5px;
+    height: 2em;
+    width: 7em;
+    margin-left: 1em;
 }
 
-@media all and (max-width: 300px) {
-.inputEnchere {
-  width: 16em;
+.btn_filter:hover {
+  background: #ffeba7;
+  border: 2px solid #1f2029;
+  color: #1f2029;
+  border-radius: 5px;
+  height: 2em;
+  width: 7em;
 }
+
+.filter-section {
+  margin-top: 1em;
+  margin-left: 39em;
 }
+
+.check {
+  margin-left: 1em;
+}
+
+h2 {
+  margin-top: 1em;
+  margin-left: 30em;
+}
+
 .card2 {
   border: 2px solid #ffeba7;
   margin-top: 8em;
@@ -352,4 +290,223 @@ article {
   100% {
     bottom: 100%;
   }
+}
+@media all and (max-width: 300px) {
+  .inputEnchere {
+    width: 16em;
+  }
+  }
+
+@media all and (min-width: 301px) and (max-width: 720px) {
+    body {
+      padding: 48px 24px 0;
+    }
+    section.card {
+      margin-top: 6em!important;
+      padding: 88px 36px 36px;
+      flex-direction: column;
+      border-radius: 24px;
+    }
+    section.card .text-content h3 {
+      max-width: calc(100% - 150px);
+      font-size: 1em;
+    }
+    section.card .text-content p,
+    section.card .text-content a {
+      font-size: 0.8em;
+    }
+    section.card .visual {
+      width: 15em;
+      height: 10em;
+      right: 16px;
+      left: auto;
+      border-radius: 30px;
+    }
+    section.card .visual img {
+      width: 100%;
+      height: auto;
+    }
+    .card2 {
+      border: 2px solid #ffeba7!important;
+      margin-top: 8em!important;
+      background: #1f2029!important;
+      border-radius: 24px 24px 24px 48px!important;
+      padding: 0!important;
+      display: flex!important;
+      flex-direction: row!important;
+      align-self: flex-start!important;
+      position: relative!important;
+      justify-content: center;
+      align-items: center;
+    }
+    .card2 .text-content {
+      display: flex!important;
+      flex-direction: column!important;
+      width: 20em!important;
+    }
+    .card2 .text-content h3 {
+      margin: 0;
+      font-size: 1.5em;
+      max-width: 20ch;
+      color: #fff;
+    }
+    .card2 .text-content p {
+      margin: 15px 0 15px 0;
+      color: #fff;
+    }
+    .card2 .text-content a {
+      border: 2px solid #ffeba7;
+      color: white;
+      align-self: flex-start;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 12px;
+      transition: 400ms all;
+    }
+    .card2 .text-content a:hover {
+      background: #ffeba7;
+      color: #1f2029;
+      border: 2px solid #1f2029;
+    }
+  
+    .btn_filter {
+      background: #1f2029;
+      border: 2px solid #ffeba7;
+      border-radius: 5px;
+      height: 2em;
+      width: 7em;
+      margin-left: 8em;
+      margin-top: 1em;
+    }
+  
+    .btn_filter:hover {
+      background: #ffeba7;
+      border: 2px solid #1f2029;
+      color: #1f2029;
+      border-radius: 5px;
+      height: 2em;
+      width: 7em;
+    }
+  
+    .filter-section {
+      margin-top: 5em!important;
+      margin-left: 2.5em!important;
+    }
+  
+    .check {
+      margin-left: 1em!important;
+    }
+  
+    h2{
+      margin-top: 1em!important;
+      margin-left: 3.5em!important;
+    }
+}
+
+@media all and (max-width: 1100px) {
+  body {
+    padding: 96px 48px 24px;
+  }
+  article {
+    width: 100%;
+    min-width: 100%;
+  }
+  section.card {
+    margin-top: 10em;
+    min-width: 100%;
+  }
+  section.card .text-content {
+    width: 100%;
+  }
+  .filter-section {
+    margin-top: 5em;
+    margin-left: 15em;
+  }
+
+  .check {
+    margin-left: 1em;
+  }
+
+  h2{
+    margin-top: 1em;
+    margin-left: 14.5em;
+  }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1280px){
+.card2 {
+  border: 2px solid #ffeba7!important;
+  margin-top: 8em!important;
+  background: #1f2029!important;
+  border-radius: 24px 24px 24px 48px!important;
+  padding: 48px 48px 48px 9em!important;
+  display: flex!important;
+  flex-direction: row!important;
+  align-self: flex-start!important;
+  position: relative!important;
+  justify-content: center;
+  align-items: center;
+}
+.card2 .text-content {
+  display: flex!important;
+  flex-direction: column!important;
+  width: 20em!important;
+}
+.card2 .text-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+  max-width: 20ch;
+  color: #fff;
+}
+.card2 .text-content p {
+  margin: 15px 0 15px 0;
+  color: #fff;
+}
+.card2 .text-content a {
+  border: 2px solid #ffeba7;
+  color: white;
+  align-self: flex-start;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: 400ms all;
+}
+.card2 .text-content a:hover {
+  background: #ffeba7;
+  color: #1f2029;
+  border: 2px solid #1f2029;
+}
+
+.btn_filter {
+  background: #1f2029;
+  border: 2px solid #ffeba7;
+  border-radius: 5px;
+  height: 2em;
+  width: 7em;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.btn_filter:hover {
+  background: #ffeba7;
+  border: 2px solid #1f2029;
+  color: #1f2029;
+  border-radius: 5px;
+  height: 2em;
+  width: 7em;
+}
+
+.filter-section {
+  margin-top: 0;
+  margin-left: 26em!important;
+}
+
+.check {
+  margin-left: 1em;
+}
+
+h2{
+  margin-top: 1em;
+  margin-left: 21.5em!important;
+}
 }
