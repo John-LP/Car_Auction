@@ -33,8 +33,8 @@
     <form action="./../classes/class_annonce.php" method="POST" enctype="multipart/form-data">
       <!-- Champ pour l'échéance de l'enchère -->
       <label>Échéance de l'enchère :</label>
-      <input type="date" name="date_fin" min="<?= date('Y-m-d') ?>" required />
-
+      <input type="date" name="date_fin" required />
+      <!-- min="<?= date('Y-m-d') ?>" -->
       <!-- Champs pour les détails de l'annonce -->
       <input placeholder="Marque du véhicule" type="text" name="marque" required />
       <input placeholder="Modèle" type="text" name="modele" required />
