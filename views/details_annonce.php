@@ -58,7 +58,7 @@
         echo "<p><u>Prix de départ :</u> " . $result['prix_depart'] . " €" . "</p>";
         // Si il y une enchère sur l'annonce elle s'affichera dans 'enchère actuelle' sinon 'Aucune' s'affichera
         if ($result['montant'] >= 1) {
-            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . " ID " . $result['id_utilisateur'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
+            echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
         } else {
             echo "<p><u>Enchère actuelle :</u> Aucune</p>";
         }
@@ -68,10 +68,16 @@
         echo '<br>';
         // En construction
         echo "<form method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
-        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrer votre enchère' name='montant' required></input>";
+        echo "<input type='number' step='100' class='info inputEnchere' placeholder='Entrez votre enchère' name='montant' required></input>";
         echo "<input type='hidden' name='id_annonce' value='" . $result['id_annonce'] . "'>";
         echo "<input type='hidden' name='date_heure_enchere' value='" . date('Y-m-d H:i:s') . "'>";
-        echo "<button class='info inputEnchere' type='submit'>Enchérir</button>";
+        echo "<button class='btn' type='submit'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Enchérir
+            </button>";
         echo "</form>";        
         // Fin de construction
         echo '<br><br>';

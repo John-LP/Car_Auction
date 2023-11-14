@@ -11,6 +11,11 @@ body {
   margin: 0;
   padding: 0.1px !important;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 section.card {
   border: 2px solid #ffeba7;
   margin-top: 8em;
@@ -23,6 +28,7 @@ section.card {
   align-self: flex-start;
   position: relative;
 }
+
 section.card .text-content {
   display: flex;
   flex-direction: column;
@@ -39,7 +45,7 @@ section.card .text-content p {
   color: #fff;
 }
 section.card .text-content a {
-  border: 3px solid #ffeba7;
+  border: 2px solid #ffeba7;
   color: white;
   align-self: flex-start;
   text-decoration: none;
@@ -90,6 +96,18 @@ article {
   color: white;
 }
 
+.encherir:hover {
+  background: #ffeba7;
+  color: #1f2029;
+  border: 3px solid #1f2029;
+  transition: 1s;
+  clip-path: circle(100% at 50% 50%);
+}
+
+.encherir:not(:hover){
+  transition: 1s;
+}
+
 @media all and (max-width: 1100px) {
   body {
     padding: 96px 48px 24px;
@@ -135,13 +153,163 @@ article {
     width: 100%;
     height: auto;
   }
-  .inputEnchere {
-    margin-bottom: 3em;
-  }
 }
 
 @media all and (max-width: 300px) {
 .inputEnchere {
   width: 16em;
 }
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 20px 30px;
+  color: #ffeba7;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #b39943;
+  color: #1f2029;
+  border-radius: 5px solid ;
+  box-shadow: 0 0 5px #000000, 0 0 10px #ffeba7, 0 0 10px #b39943,
+    0 0 10px #ffeba7;
+}
+.btn span {
+  position: absolute;
+  display: block;
+}
+.btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffeba7);
+  animation: btn-anim1 1s linear infinite;
+}
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ffeba7);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #ffeba7);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+.btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #ffeba7);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+.card2 {
+  border: 2px solid #ffeba7;
+  margin-top: 8em;
+  background: #1f2029;
+  border-radius: 24px 24px 24px 48px;
+  padding: 48px 48px 48px 28em;
+  min-width: 640px;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  position: relative;
+}
+.card2 .text-content {
+  display: flex;
+  flex-direction: column;
+  width: calc(60vw - 192px);
+}
+.card2 .text-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+  max-width: 20ch;
+  color: #fff;
+}
+.card2 .text-content p {
+  margin: 15px 0 15px 0;
+  color: #fff;
+}
+.card2 .text-content a {
+  border: 2px solid #ffeba7;
+  color: white;
+  align-self: flex-start;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: 400ms all;
+}
+.card2 .text-content a:hover {
+  background: #ffeba7;
+  color: #1f2029;
+  border: 2px solid #1f2029;
+}
+.card2 .visual {
+  border: 2px solid #ffeba7;
+  width: 55%;
+  height: 25em;
+  position: absolute;
+  top: -5em;
+  right: 4em;
+  overflow: hidden;
+  border-radius: 24px;
+}
+.card2 .visual img {
+  height: 110%;
 }

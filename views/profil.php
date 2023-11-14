@@ -48,7 +48,7 @@
     // Affichage des informations de l'utilisateur
     while ($result = $query->fetch()) {
         echo '<article>';
-        echo '<section class="card">';
+        echo '<section class="card2">';
         echo '<div class="text-content">';
         echo "<p><u>Nom :</u> " . $result['nom'] . "</p>";
         echo '<br>';
@@ -59,9 +59,9 @@
         echo "<p><u>Mot de passe :</u> <input class='mdp' type='password' id='password' value='" . $result['mdp'] . "' disabled></p>";
         echo "<br>";
         // Bouton pour afficher ou cacher le mot de passe
-        echo "<a class='info' onclick='togglePassword()'>Afficher/Cacher Mot de passe</a><br>";
+        echo "<a class='encherir' onclick='togglePassword()'>Afficher/Cacher Mot de passe</a><br>";
         // Lien pour la modification du profil
-        echo "<a class='info' href='./edit_profil.php'>Modifier mes informations</a>";
+        echo "<a class='encherir' href='./edit_profil.php'>Modifier mes informations</a>";
         echo '<br><br>';
         echo '</section>';
         echo '</article>';
