@@ -38,7 +38,7 @@
       <!-- Champs pour les détails de l'annonce -->
       <input placeholder="Marque du véhicule" type="text" name="marque" required />
       <input placeholder="Modèle" type="text" name="modele" required />
-      <input placeholder="Prix de départ" type="number" name="prix_depart" required min="0" />
+      <input placeholder="Prix de départ" type="number" step="100" name="prix_depart" required min="0" />
       <input placeholder="Puissance" type="number" name="puissance" required min="0" />
       <input placeholder="Année" type="number" id="yearInput" name="annee" min="1985" step="1" required>
 
