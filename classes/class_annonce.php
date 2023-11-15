@@ -86,8 +86,8 @@ class Annonces {
 
 // Vérification si le formulaire est soumis en POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Création d'une instance de la classe Annonces avec les données du formulaire
-    $annonce = new Annonces(
+     // Création d'une instance de la classe Annonces avec les données du formulaire
+     $annonce = new Annonces(
         $id_utilisateur,
         $_POST['prix_depart'],
         $_POST['date_fin'],
@@ -96,32 +96,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['puissance'],
         $_POST['annee'],
         $_POST['description']
-    );
+        );
 
     // Définition du répertoire cible pour le téléchargement de l'image
     $targetDirectory = "E:/wamp64/www/images/";
     $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
     $imagePath = "http://localhost/images/" . basename($_FILES["image"]["name"]);
-
-    // Vérification et téléchargement du fichier image
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-        echo "Le fichier " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a été téléchargé.";
-
-        // Appel de la méthode pour créer une annonce à partir des données du formulaire
-        $annonce->createAnnonceFromForm(
-            $id_utilisateur,
-            $_POST['prix_depart'],
-            $_POST['date_fin'],
-            $_POST['modele'],
-            $_POST['marque'],
-            $_POST['puissance'],
-            $_POST['annee'],
-            $_POST['description'],
-            $imagePath
-        );
-    } else {
-        echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
-    }
 
     // Vérification des propriétés du fichier image
     $uploadOk = 1;
@@ -155,13 +135,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($uploadOk == 0) {
         echo "Votre fichier n'a pas été téléchargé.";
+        echo "<a href='..' >Retour</a>";
 
     } else {
+        // Vérification et téléchargement du fichier image
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
             echo "Le fichier " . htmlspecialchars(basename($_FILES["image"]["name"])) . " a été téléchargé.";
 
+            // Appel de la méthode pour créer une annonce à partir des données du formulaire
+            $annonce->createAnnonceFromForm(
+                $id_utilisateur,
+                $_POST['prix_depart'],
+                $_POST['date_fin'],
+                $_POST['modele'],
+                $_POST['marque'],
+                $_POST['puissance'],
+                $_POST['annee'],
+                $_POST['description'],
+                $imagePath
+            );
         } else {
             echo "Une erreur s'est produite lors du téléchargement de votre fichier.";
+            echo "<a href='..' >Retour</a>";
         }
     }
 }
