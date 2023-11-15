@@ -18,7 +18,6 @@
     require_once __DIR__ . "./../classes/class_serveur.php";
     require_once __DIR__ . "./../classes/class_enchere.php";
 
-
     //Verifie que la variable 'Id_annonce' soit presente dans l'url et est envoyé avec la methode get quand l'utilisateur cliaue sur le lien
     if(isset($_GET['id_annonce'])) {
         $id_annonce = $_GET['id_annonce'];
@@ -28,6 +27,7 @@
         $query = $dbh->prepare(
         "SELECT 
                 annonces.*,
+                encheres.id_enchere,
                 encheres.montant,
                 encheres.id_utilisateur,
                 encheres.date_heure_enchere,
@@ -48,7 +48,22 @@
         // lie la valeur à la variable dans la requête SQL. Cela aide à prévenir les attaques par injection SQL en assurant que la valeur de l'identifiant est traitée comme un entier.
         $query->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
         $query->execute();
-
+        $hitorique_enchere = $queryEncheres = $dbh->prepare(
+            "SELECT
+                encheres.id_enchere,
+                encheres.montant,
+                encheres.date_heure_enchere,
+                encheres.id_utilisateur,
+                utilisateurs.prenom,
+                utilisateurs.nom
+            FROM
+                encheres
+            LEFT JOIN annonces ON encheres.id_annonce = annonces.id_annonce
+            LEFT JOIN utilisateurs ON encheres.id_utilisateur = utilisateurs.id_utilisateur
+            WHERE encheres.id_annonce = :id_annonce
+            AND encheres.id_enchere != :current_enchere_id
+            ORDER BY encheres.date_heure_enchere DESC");
+    
         $result = $query->fetch();
             echo '<article>';
             echo '<section class="card">';
@@ -60,12 +75,33 @@
             if (new DateTime($result['date_fin']) > $date_actuelle) {
                 if ($result['montant'] >= 1) {
                     echo "<p><u>Enchère actuelle :</u> " . $result['montant'] . " €" . " par " . $result['nom'] . " " . $result['prenom'] . "<br />" . "le" . " " . $result['date_heure_enchere'] . "</p>";
+                    if ($result['montant'] >= 1) {
+                        // Utilisez l'identifiant unique d'enchère pour filtrer les enchères précédentes
+                        $hitorique_enchere;
+                        $queryEncheres->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
+                        $queryEncheres->bindValue(':current_enchere_id', $result['id_enchere'], PDO::PARAM_INT);
+                        $queryEncheres->execute();
+                        
+                        echo "<p><u>Enchères précédentes :</u></p>";
+                        while ($resultEnchere = $queryEncheres->fetch()) {
+                            echo "<p>Enchérisseur : " . $resultEnchere['nom'] . " " . $resultEnchere['prenom'] . "<br>" . "Enchère : " . $resultEnchere['montant'] . " €" . " le " . $resultEnchere['date_heure_enchere'] . "</p>";
+                        }
+                    }
                 } else {
                     echo "<p><u>Enchère actuelle :</u> Aucune</p>";
                 }
             } else {
                 if ($result['montant']) {
                 echo "<p>" . $result['nom'] . " " . $result['prenom'] . " a remporté le bien" . "<br>" . "avec une enchère de " . $result['montant'] . " €" . "</p>";
+                // Utilisez l'identifiant unique d'enchère pour filtrer les enchères précédentes
+                $hitorique_enchere;
+                $queryEncheres->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
+                $queryEncheres->bindValue(':current_enchere_id', $result['id_enchere'], PDO::PARAM_INT);
+                $queryEncheres->execute();
+                echo "<p><u>Enchères précédentes :</u></p>";
+                while ($resultEnchere = $queryEncheres->fetch()) {
+                    echo "<p>Enchérisseur : " . $resultEnchere['nom'] . " " . $resultEnchere['prenom'] . "<br>" . "Enchère : " . $resultEnchere['montant'] . " €" . " le " . $resultEnchere['date_heure_enchere'] . "</p>";
+                }
                 } else {
                     echo "<p>Aucune offre n'a été faite pour cette annonce.</p>";
                 }
